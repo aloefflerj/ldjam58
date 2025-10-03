@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct2loj0k62qp1"]
+
+[ext_resource type="Texture2D" uid="uid://bhl6h4hbl14tf" path="res://assets/Placeholder/Block/block-01.png" id="1_jf2op"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1466x"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2q3m"]
+atlas = ExtResource("1_jf2op")
+
+[node name="Block" type="RigidBody2D" groups=["TriggerDropCore"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1466x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_b2q3m")
