@@ -40,7 +40,7 @@ shape = SubResource("RectangleShape2D_dw2rk")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
 [node name="Ground2" type="Sprite2D" parent="."]
-position = Vector2(243, 2)
+position = Vector2(245, 1)
 scale = Vector2(0.354167, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground2"]
