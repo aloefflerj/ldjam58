@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://di0alpo8jtk85"]
+[gd_scene load_steps=10 format=3 uid="uid://di0alpo8jtk85"]
 
 [ext_resource type="Texture2D" uid="uid://e7qtwmesgia5" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_iq40g"]
 [ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="3_iq40g"]
+[ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="4_gsc1e"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4yk0h"]
 
@@ -71,6 +72,8 @@ scale = Vector2(1.17458, 1.64528)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/Repel Spell"]
 shape = SubResource("RectangleShape2D_gsc1e")
+
+[node name="Hud" parent="." instance=ExtResource("4_gsc1e")]
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="Bully/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]

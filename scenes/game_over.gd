@@ -2,6 +2,8 @@ extends Node2D
 
 func _ready() -> void:
 	get_tree().paused = true
+	
+	GameManager.player_budget = 0
 
 
 func _on_retry_pressed() -> void:

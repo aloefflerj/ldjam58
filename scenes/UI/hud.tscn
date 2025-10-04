@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxq57h41375fl"]
+
+[ext_resource type="Script" uid="uid://cxnm1ycuxwsqr" path="res://scenes/UI/hud.gd" id="1_c4vmg"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_c4vmg")
+
+[node name="BudgeLabel" type="Label" parent="."]
+offset_left = 210.0
+offset_top = 2.0
+offset_right = 320.0
+offset_bottom = 25.0
+text = "Budget: $0"
