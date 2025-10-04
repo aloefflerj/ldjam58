@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cqvo3qfmf7ddx" path="res://scenes/Itens/power_up.tscn" id="6_aug50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
-size = Vector2(321, 52)
+size = Vector2(321, 30.0631)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_78awf"]
 
@@ -35,7 +35,7 @@ position = Vector2(160, 90)
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(159.5, 153)
+position = Vector2(159.5, 163.798)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_78awf")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)

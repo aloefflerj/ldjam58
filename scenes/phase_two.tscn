@@ -9,7 +9,7 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4yk0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq40g"]
-size = Vector2(321, 52)
+size = Vector2(321, 29.0473)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yk0h"]
 
@@ -43,7 +43,7 @@ position = Vector2(-27, 103)
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(191, 49)
+position = Vector2(191, 60.2981)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_iq40g")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)

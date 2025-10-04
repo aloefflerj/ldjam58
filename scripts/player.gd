@@ -9,7 +9,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
-enum PlayerState {IDLE, RUN, JUMP, FALL}
+enum PlayerState {IDLE, RUN, JUMP, FALL, HIT}
 
 
 var _state: PlayerState = PlayerState.IDLE
@@ -26,10 +26,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if velocity.x > 0:
+	if velocity.x > 0 and not got_hit:
 		animated_sprite_2d.flip_h = false
 	
-	if velocity.x < 0:
+	if velocity.x < 0 and not got_hit:
 		animated_sprite_2d.flip_h = true
 	
 	## Example of iteraction between player and a rigid body 2d
@@ -56,6 +56,10 @@ func _physics_process(delta: float) -> void:
 
 
 func calculate_states() -> void:
+	if got_hit:
+		set_state(PlayerState.HIT)
+		return
+
 	if is_on_floor() == true:
 		if velocity.x == 0:
 			set_state(PlayerState.IDLE)
@@ -83,6 +87,8 @@ func set_state(new_state: PlayerState) -> void:
 			animated_sprite_2d.animation = "jump"
 		PlayerState.FALL:
 			animated_sprite_2d.animation = "fall"
+		PlayerState.HIT:
+			animated_sprite_2d.animation = "hit"
 
 
 func handle_movement_input_behaviour() -> void:
@@ -118,5 +124,5 @@ func _on_repel_spell_body_entered(body: Node2D) -> void:
 		velocity = Vector2(-500, -50)
 		
 		if self.got_hit:
-			await get_tree().create_timer(0.42).timeout
+			await get_tree().create_timer(1.6).timeout
 			GameManager.end_game()
