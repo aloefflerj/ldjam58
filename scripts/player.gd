@@ -107,3 +107,7 @@ func _on_repel_spell_body_entered(body: Node2D) -> void:
 		input_enabled = false
 		got_hit = true
 		velocity = Vector2(-500, -50)
+		
+		if self.got_hit:
+			await get_tree().create_timer(0.42).timeout
+			GameManager.end_game()
