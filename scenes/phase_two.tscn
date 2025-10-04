@@ -21,7 +21,7 @@ size = Vector2(321, 52)
 position = Vector2(160, 89)
 texture = ExtResource("1_4yk0h")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_iq40g")]
+[node name="Player" parent="." instance=ExtResource("2_iq40g")]
 position = Vector2(11, 102)
 phase_path = "res://scenes/phase_three.tscn"
 

@@ -30,6 +30,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 TriggerDropCore="Means about core score triggers"
+player=""
 
 [input]
 

@@ -58,4 +58,10 @@ shape = SubResource("CircleShape2D_78awf")
 [node name="Collectible" parent="." instance=ExtResource("4_78awf")]
 position = Vector2(145, 112)
 
+[node name="Collectible2" parent="." instance=ExtResource("4_78awf")]
+position = Vector2(165, 112)
+
+[node name="Collectible3" parent="." instance=ExtResource("4_78awf")]
+position = Vector2(182, 112)
+
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]

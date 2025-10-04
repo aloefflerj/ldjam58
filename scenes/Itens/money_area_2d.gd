@@ -8,6 +8,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
-		print("has collision with collectible")
-
+		print("incresing budget...")
+		GameManager.increase_budget(self.score_value)
 		queue_free()
