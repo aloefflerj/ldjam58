@@ -1,18 +1,22 @@
 extends CharacterBody2D
 
+
 @export var phase_path: String
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sound_player: AudioStreamPlayer2D = $SoundPlayer
+
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
 enum PlayerState {IDLE, RUN, JUMP, FALL}
 
+
 var _state: PlayerState = PlayerState.IDLE
 var sound_played = false
 var input_enabled = true
 var got_hit = false
+
 
 func _physics_process(delta: float) -> void:
 	handle_movement_input_behaviour()
@@ -50,7 +54,8 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	calculate_states()
-	
+
+
 func calculate_states() -> void:
 	if is_on_floor() == true:
 		if velocity.x == 0:
@@ -62,6 +67,7 @@ func calculate_states() -> void:
 			set_state(PlayerState.FALL)
 		else:
 			set_state(PlayerState.JUMP)
+
 
 func set_state(new_state: PlayerState) -> void:
 	if new_state == _state:
@@ -79,6 +85,7 @@ func set_state(new_state: PlayerState) -> void:
 		PlayerState.FALL:
 			animated_sprite_2d.animation = "fall"
 
+
 func handle_movement_input_behaviour() -> void:
 	if not input_enabled:
 			return
@@ -92,11 +99,13 @@ func handle_movement_input_behaviour() -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+
 func hit_slow_down() -> void:
 	if not got_hit:
 		return
 
 	velocity.x = move_toward(velocity.x, 0, 20.0)
+
 
 func _on_phase_end_body_entered(_body: Node2D) -> void:
 	get_tree().call_deferred("change_scene_to_file", phase_path)
