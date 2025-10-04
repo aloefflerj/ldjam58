@@ -13,11 +13,11 @@ size = Vector2(321, 52)
 [node name="phase_three" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(159, 89)
+position = Vector2(160, -90)
 texture = ExtResource("1_etcbv")
 
 [node name="Ground" type="Sprite2D" parent="."]
-position = Vector2(-26, 152)
+position = Vector2(-26, 125)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
@@ -38,7 +38,7 @@ scale = Vector2(3.66373, 10.9106)
 shape = SubResource("SegmentShape2D_qg70y")
 
 [node name="Player" parent="." instance=ExtResource("2_cd8kx")]
-position = Vector2(12, 158)
+position = Vector2(14, 119)
 phase_path = "res://scenes/phase_four.tscn"
 
 [node name="Phase End" type="Area2D" parent="."]
