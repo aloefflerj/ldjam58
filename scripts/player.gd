@@ -84,3 +84,7 @@ func set_state(new_state: PlayerState) -> void:
 			animated_sprite_2d.animation = "jump"
 		PlayerState.FALL:
 			animated_sprite_2d.animation = "fall"
+
+
+func _on_phase_end_body_entered(_body: Node2D) -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/phase_two.tscn")
