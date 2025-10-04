@@ -10,7 +10,7 @@ size = Vector2(321, 52)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_78awf"]
 
-[node name="Game" type="Node2D"]
+[node name="PhaseOne" type="Node2D"]
 script = ExtResource("1_aug50")
 
 [node name="Bg" type="Sprite2D" parent="."]
