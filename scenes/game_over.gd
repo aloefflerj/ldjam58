@@ -4,6 +4,7 @@ func _ready() -> void:
 	get_tree().paused = true
 	
 	GameManager.player_budget = 0
+	GameManager.power_up_jump_multiply = 1
 
 
 func _on_retry_pressed() -> void:

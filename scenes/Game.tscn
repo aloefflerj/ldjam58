@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://36ldmg7cl1xw"]
+[gd_scene load_steps=10 format=3 uid="uid://36ldmg7cl1xw"]
 
 [ext_resource type="Script" uid="uid://c4ah0timuo4pm" path="res://scenes/game.gd" id="1_aug50"]
 [ext_resource type="Texture2D" uid="uid://vvx4dpwhrvtd" path="res://assets/Placeholder/Levels/level1.png" id="2_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_qbsmt"]
 [ext_resource type="PackedScene" uid="uid://bd5f7qhorkhyi" path="res://scenes/Itens/collectible.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="5_s0nni"]
+[ext_resource type="PackedScene" uid="uid://cqvo3qfmf7ddx" path="res://scenes/Itens/power_up.tscn" id="6_aug50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
 size = Vector2(321, 52)
@@ -40,11 +41,21 @@ shape = SubResource("RectangleShape2D_78awf")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
-position = Vector2(-27, 103)
+position = Vector2(-27, 102)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Extreme Left Margin/StaticBody2D"]
+position = Vector2(25, -84)
+scale = Vector2(3.66373, 10.9106)
+shape = SubResource("SegmentShape2D_78awf")
+
+[node name="Extreme Right Margin" type="Sprite2D" parent="."]
+position = Vector2(296, 68)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Extreme Right Margin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Extreme Right Margin/StaticBody2D"]
 position = Vector2(25, -84)
 scale = Vector2(3.66373, 10.9106)
 shape = SubResource("SegmentShape2D_78awf")
@@ -66,5 +77,8 @@ position = Vector2(165, 112)
 position = Vector2(182, 112)
 
 [node name="Hud" parent="." instance=ExtResource("5_s0nni")]
+
+[node name="PowerUp" parent="." instance=ExtResource("6_aug50")]
+position = Vector2(81, 113)
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
