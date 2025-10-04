@@ -10,6 +10,7 @@ func end_game() -> void:
 	
 	get_tree().root.add_child(game_over_instance)
 
+
 func increase_budget(value: int) -> void:
 	self.player_budget += value
 	print("Your budget is $", self.player_budget, " dollars more")
