@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://di0alpo8jtk85"]
+[gd_scene load_steps=11 format=3 uid="uid://di0alpo8jtk85"]
 
 [ext_resource type="Texture2D" uid="uid://e7qtwmesgia5" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_iq40g"]
 [ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="3_iq40g"]
+[ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="4_a3ypm"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="4_gsc1e"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4yk0h"]
@@ -12,9 +13,9 @@ size = Vector2(321, 52)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yk0h"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iq40g"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsc1e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3ypm"]
 
 [node name="PhaseTwo" type="Node2D"]
 
@@ -58,20 +59,20 @@ position = Vector2(162, 95)
 scale = Vector2(1.34375, 1.29167)
 texture = ExtResource("3_iq40g")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Bully"]
-position = Vector2(0, 4)
-scale = Vector2(0.68, 1.04)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/StaticBody2D"]
-position = Vector2(-0.547196, -0.124068)
-shape = SubResource("CapsuleShape2D_iq40g")
-
 [node name="Repel Spell" type="Area2D" parent="Bully"]
 position = Vector2(-15, 8)
 scale = Vector2(1.17458, 1.64528)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/Repel Spell"]
 shape = SubResource("RectangleShape2D_gsc1e")
+
+[node name="Weakness" type="Area2D" parent="Bully"]
+scale = Vector2(1, 0.752259)
+script = ExtResource("4_a3ypm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/Weakness"]
+scale = Vector2(1, 1.24699)
+shape = SubResource("CapsuleShape2D_a3ypm")
 
 [node name="Hud" parent="." instance=ExtResource("4_gsc1e")]
 
