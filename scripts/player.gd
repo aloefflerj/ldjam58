@@ -106,8 +106,9 @@ func hit_slow_down() -> void:
 	velocity.x = move_toward(velocity.x, 0, 20.0)
 
 
-func _on_phase_end_body_entered(_body: Node2D) -> void:
-	get_tree().call_deferred("change_scene_to_file", phase_path)
+func _on_phase_end_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		get_tree().call_deferred("change_scene_to_file", phase_path)
 
 
 func _on_repel_spell_body_entered(body: Node2D) -> void:
