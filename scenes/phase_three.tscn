@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bupu4lgml2g4o"]
+[gd_scene load_steps=6 format=3 uid="uid://bupu4lgml2g4o"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_etcbv"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_cd8kx"]
@@ -7,6 +7,8 @@
 size = Vector2(321, 52)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qg70y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etcbv"]
 
 [node name="phase_three" type="Node2D"]
 
@@ -37,4 +39,12 @@ shape = SubResource("SegmentShape2D_qg70y")
 
 [node name="Player" parent="." instance=ExtResource("2_cd8kx")]
 position = Vector2(12, 158)
-phase_path = "res://scenes/phase_three.tscn"
+phase_path = "res://scenes/phase_four.tscn"
+
+[node name="Phase End" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
+position = Vector2(320, 158)
+shape = SubResource("CircleShape2D_etcbv")
+
+[connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]

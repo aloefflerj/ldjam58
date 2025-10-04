@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd0c0uhiwxx3h"]
+
+[ext_resource type="Texture2D" uid="uid://bg752uw50h1qm" path="res://assets/Placeholder/Levels/level_4.png" id="1_dca4l"]
+[ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_nljod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cc1m"]
+size = Vector2(321, 52)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hi7l3"]
+
+[node name="phase four" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_dca4l")
+
+[node name="Ground" type="Sprite2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+position = Vector2(159.5, 153)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_4cc1m")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="Extreme Left Margin" type="Sprite2D" parent="."]
+position = Vector2(-27, 103)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Extreme Left Margin/StaticBody2D"]
+position = Vector2(25, -84)
+scale = Vector2(3.66373, 10.9106)
+shape = SubResource("SegmentShape2D_hi7l3")
+
+[node name="Player" parent="." instance=ExtResource("2_nljod")]
+position = Vector2(39, 108)
+phase_path = "res://scenes/phase_two.tscn"

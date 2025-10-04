@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://6d1ge0mvuvrt"]
+
+[ext_resource type="Texture2D" uid="uid://bbscfqw4t2boj" path="res://assets/Placeholder/Levels/level_5.png" id="1_dw2rk"]
+[ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_snv5q"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e8w3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw2rk"]
+size = Vector2(321, 52)
+
+[node name="phase_five" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_dw2rk")
+
+[node name="Player" parent="." instance=ExtResource("2_snv5q")]
+position = Vector2(16, 110)
+phase_path = "res://scenes/phase_four.tscn"
+
+[node name="Extreme Left Margin" type="Sprite2D" parent="."]
+position = Vector2(-28, 102)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Extreme Left Margin/StaticBody2D"]
+position = Vector2(25, -84)
+scale = Vector2(3.66373, 10.9106)
+shape = SubResource("SegmentShape2D_e8w3v")
+
+[node name="Ground" type="Sprite2D" parent="."]
+scale = Vector2(0.354167, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+position = Vector2(159.5, 153)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_dw2rk")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="Ground2" type="Sprite2D" parent="."]
+position = Vector2(243, 2)
+scale = Vector2(0.354167, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D"]
+position = Vector2(159.5, 153)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_dw2rk")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
