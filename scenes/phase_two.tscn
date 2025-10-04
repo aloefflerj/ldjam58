@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di0alpo8jtk85"]
+[gd_scene load_steps=9 format=3 uid="uid://dnm8duopvvudu"]
 
 [ext_resource type="Texture2D" uid="uid://ppqe0wus4uwt" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_iq40g"]
@@ -21,8 +21,8 @@ size = Vector2(321, 52)
 position = Vector2(160, 89)
 texture = ExtResource("1_4yk0h")
 
-[node name="Player" parent="." instance=ExtResource("2_iq40g")]
-position = Vector2(117, 104)
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_iq40g")]
+position = Vector2(35, 40)
 phase_path = "res://scenes/phase_three.tscn"
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
@@ -64,8 +64,8 @@ scale = Vector2(0.68, 1.04)
 shape = SubResource("CapsuleShape2D_iq40g")
 
 [node name="Repel Spell" type="Area2D" parent="Bully"]
-position = Vector2(-17, 8)
-scale = Vector2(1.77458, 2.16528)
+position = Vector2(-15, 8)
+scale = Vector2(1.17458, 1.64528)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/Repel Spell"]
 shape = SubResource("RectangleShape2D_gsc1e")
