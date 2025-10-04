@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dnm8duopvvudu"]
 
-[ext_resource type="Texture2D" uid="uid://ppqe0wus4uwt" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
+[ext_resource type="Texture2D" uid="uid://e7qtwmesgia5" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_iq40g"]
 [ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="3_iq40g"]
 
@@ -22,7 +22,7 @@ position = Vector2(160, 89)
 texture = ExtResource("1_4yk0h")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_iq40g")]
-position = Vector2(35, 40)
+position = Vector2(11, 102)
 phase_path = "res://scenes/phase_three.tscn"
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
@@ -53,7 +53,8 @@ position = Vector2(319, 110)
 shape = SubResource("CircleShape2D_4yk0h")
 
 [node name="Bully" type="Sprite2D" parent="."]
-position = Vector2(160, 102)
+position = Vector2(162, 95)
+scale = Vector2(1.34375, 1.29167)
 texture = ExtResource("3_iq40g")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bully"]
@@ -61,6 +62,7 @@ position = Vector2(0, 4)
 scale = Vector2(0.68, 1.04)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/StaticBody2D"]
+position = Vector2(-0.547196, -0.124068)
 shape = SubResource("CapsuleShape2D_iq40g")
 
 [node name="Repel Spell" type="Area2D" parent="Bully"]

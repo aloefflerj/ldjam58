@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://36ldmg7cl1xw"]
 
 [ext_resource type="Script" uid="uid://c4ah0timuo4pm" path="res://scenes/game.gd" id="1_aug50"]
-[ext_resource type="Texture2D" uid="uid://dsipjbe1oldth" path="res://assets/Placeholder/Levels/level_1.png" id="2_78awf"]
+[ext_resource type="Texture2D" uid="uid://vvx4dpwhrvtd" path="res://assets/Placeholder/Levels/level1.png" id="2_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_qbsmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
@@ -16,7 +16,7 @@ script = ExtResource("1_aug50")
 
 [node name="Bg" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
-texture = ExtResource("2_78awf")
+texture = ExtResource("2_cpr0p")
 
 [node name="Player" parent="." instance=ExtResource("2_qbsmt")]
 position = Vector2(117, 104)
