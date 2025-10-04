@@ -46,7 +46,6 @@ func _physics_process(delta: float) -> void:
 			collider_node.apply_central_impulse(push_direction)
 			
 			if not sound_played:
-				SoundManager.play_clip(sound_player, SoundManager.HIT)
 				sound_played = true
 
 				await get_tree().create_timer(0.5).timeout

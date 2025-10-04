@@ -3,9 +3,17 @@ extends Node
 
 signal budget_updated(new_budget)
 
+
+var soundtrack_game_scene = preload("res://scenes/Itens/soundtrack.tscn")
 var game_over_scene = preload("res://scenes/game_over.tscn")
 var player_budget: int = 0
 var power_up_jump_multiply: float = 1.00
+
+
+func _ready() -> void:
+	var soundtrack = soundtrack_game_scene.instantiate()
+	
+	get_tree().root.call_deferred("add_child", soundtrack)
 
 
 func end_game() -> void:

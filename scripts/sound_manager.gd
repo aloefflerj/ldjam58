@@ -1,16 +1,17 @@
 extends Node
 
-const LEVEL_MUSIC = 'level_music'
-const HIT = 'hit'
+
+const MAIN_THEME = 'main_theme'
+
 
 var SOUNDS: Dictionary = {
-	LEVEL_MUSIC: preload("res://assets/sfx/shop-song.wav"),
-	HIT: preload("res://assets/sfx/hit.wav")
+	MAIN_THEME: preload("res://assets/sfx/I want to have a bike.wav")
 }
 
-func play_clip(player: AudioStreamPlayer2D, clip_key: String) -> void:
+
+func play_clip(audio_player: AudioStreamPlayer2D, clip_key: String) -> void:
 	if SOUNDS.has(clip_key) == false:
 		return
-		
-	player.stream = SOUNDS[clip_key]
-	player.play()
+
+	audio_player.stream = SOUNDS[clip_key]
+	audio_player.play()
