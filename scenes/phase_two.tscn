@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnm8duopvvudu"]
+[gd_scene load_steps=9 format=3 uid="uid://di0alpo8jtk85"]
 
 [ext_resource type="Texture2D" uid="uid://e7qtwmesgia5" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_iq40g"]
