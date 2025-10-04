@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://36ldmg7cl1xw"]
+[gd_scene load_steps=7 format=3 uid="uid://36ldmg7cl1xw"]
 
 [ext_resource type="Script" uid="uid://c4ah0timuo4pm" path="res://scenes/game.gd" id="1_aug50"]
 [ext_resource type="Texture2D" uid="uid://dsipjbe1oldth" path="res://assets/Placeholder/Levels/level_1.png" id="2_78awf"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_qbsmt"]
-[ext_resource type="PackedScene" uid="uid://cmn0bi4as0iu4" path="res://scenes/Triggers/drop_core.tscn" id="5_s0nni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
 size = Vector2(321, 52)
@@ -21,13 +20,10 @@ texture = ExtResource("2_78awf")
 
 [node name="Player" parent="." instance=ExtResource("2_qbsmt")]
 position = Vector2(117, 104)
+phase_path = "res://scenes/phase_two.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 90)
-
-[node name="DropCore" parent="." instance=ExtResource("5_s0nni")]
-visible = false
-position = Vector2(32, 170)
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
 
@@ -52,9 +48,10 @@ scale = Vector2(3.66373, 10.9106)
 shape = SubResource("SegmentShape2D_78awf")
 
 [node name="Phase End" type="Area2D" parent="."]
+position = Vector2(320, 114)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
-position = Vector2(322, 110)
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_78awf")
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]

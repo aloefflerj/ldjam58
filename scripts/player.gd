@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var phase_path: String
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sound_player: AudioStreamPlayer2D = $SoundPlayer
 
@@ -87,4 +88,4 @@ func set_state(new_state: PlayerState) -> void:
 
 
 func _on_phase_end_body_entered(_body: Node2D) -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/phase_two.tscn")
+	get_tree().call_deferred("change_scene_to_file", phase_path)
