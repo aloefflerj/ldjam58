@@ -30,10 +30,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if velocity.x > 0:
-		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.flip_h = false
 	
 	if velocity.x < 0:
-		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.flip_h = true
 	
 	## Example of iteraction between player and a rigid body 2d
 	var collision: KinematicCollision2D = get_last_slide_collision()
@@ -89,3 +89,7 @@ func set_state(new_state: PlayerState) -> void:
 
 func _on_phase_end_body_entered(_body: Node2D) -> void:
 	get_tree().call_deferred("change_scene_to_file", phase_path)
+
+
+func _on_repel_spell_body_entered(_body: Node2D) -> void:
+	velocity = Vector2(-5000, -5)
