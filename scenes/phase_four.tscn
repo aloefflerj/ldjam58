@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bd0c0uhiwxx3h"]
+[gd_scene load_steps=20 format=3 uid="uid://bd0c0uhiwxx3h"]
 
 [ext_resource type="Texture2D" uid="uid://bg752uw50h1qm" path="res://assets/Placeholder/Levels/level_4.png" id="1_dca4l"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_nljod"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_nljod"]
 [ext_resource type="Texture2D" uid="uid://mrbjcn6b8klo" path="res://assets/Placeholder/Chars/lady.png" id="4_4cc1m"]
+[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="5_632nh"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="5_hi7l3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cc1m"]
@@ -30,6 +31,22 @@ region = Rect2(64, 0, 32, 48)
 atlas = ExtResource("4_4cc1m")
 region = Rect2(96, 0, 32, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfbhl"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueai5"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r2ip"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkmmt"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(224, 0, 32, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mfbhl"]
 animations = [{
 "frames": [{
@@ -47,6 +64,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfbhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueai5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r2ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkmmt")
+}],
+"loop": false,
+"name": &"hit",
 "speed": 8.0
 }]
 
@@ -93,20 +127,25 @@ shape = SubResource("RectangleShape2D_nljod")
 
 [node name="Hud" parent="." instance=ExtResource("3_nljod")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Lady" type="AnimatedSprite2D" parent="."]
 position = Vector2(156, 124)
 sprite_frames = SubResource("SpriteFrames_mfbhl")
+animation = &"hit"
 autoplay = "default"
+frame = 3
+frame_progress = 1.0
 flip_h = true
+script = ExtResource("5_632nh")
 
-[node name="Weakness" type="Area2D" parent="AnimatedSprite2D"]
+[node name="Weakness" type="Area2D" parent="Lady"]
 position = Vector2(0, 4)
 scale = Vector2(1.34375, 0.97167)
 script = ExtResource("5_hi7l3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Weakness"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lady/Weakness"]
 position = Vector2(0, -15.4373)
 scale = Vector2(1, 1.24699)
 shape = SubResource("CapsuleShape2D_632nh")
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
+[connection signal="body_entered" from="Lady/Weakness" to="Lady" method="_on_weakness_body_entered"]
