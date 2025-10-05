@@ -13,9 +13,8 @@ func _ready() -> void:
 
 
 func on_budget_updated(new_budget: int) -> void:
-	$BudgeLabel.text = "[b][font_size=12
-][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]Bike Budget: $" + str(new_budget) + "[/wave][/color][/font_size][/b]"
-
+	$BudgeLabel.text = "[b][font_size=11
+][color=#a3c1b7]Bike Budget: $" + str(new_budget) + "[/color][/font_size][/b]"
 
 func _on_retry_pressed() -> void:
 	# get_tree().call_deferred("change_scene_to_file", "res://scenes/Game.tscn")

@@ -15,8 +15,8 @@ offset_right = 40.0
 offset_bottom = 20.0
 mouse_filter = 2
 bbcode_enabled = true
-text = "[b][font_size=12
-][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]Retry[/wave][/color][/font_size][/b]"
+text = "[b][font_size=11
+][color=#a3c1b7][pulse freq=1.0 color=#ffffff40 ease=-2.0]Retry[/pulse][/color][/font_size][/b]"
 fit_content = true
 scroll_active = false
 
@@ -26,8 +26,8 @@ offset_top = 1.0
 offset_right = 318.0
 offset_bottom = 19.0
 bbcode_enabled = true
-text = "[b][font_size=12
-][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]Bike Budget: $2000[/wave][/color][/font_size][/b]"
+text = "[b][font_size=11
+][color=#a3c1b7]Bike Budget: $2000[/color][/font_size][/b]"
 fit_content = true
 scroll_active = false
 
