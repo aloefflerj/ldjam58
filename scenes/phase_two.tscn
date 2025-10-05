@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://di0alpo8jtk85"]
+[gd_scene load_steps=29 format=3 uid="uid://di0alpo8jtk85"]
 
 [ext_resource type="Texture2D" uid="uid://e7qtwmesgia5" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_iq40g"]
 [ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="3_iq40g"]
+[ext_resource type="Script" uid="uid://b45w5iomsqxqo" path="res://scenes/speech-lvl2.gd" id="3_muopr"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="4_a3ypm"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="4_gsc1e"]
 [ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_hvyw1"]
@@ -144,8 +145,24 @@ texture = ExtResource("1_4yk0h")
 
 [node name="Player" parent="." instance=ExtResource("2_iq40g")]
 unique_name_in_owner = true
-position = Vector2(12, 123)
+position = Vector2(30, 124)
 phase_path = "res://scenes/phase_three.tscn"
+level_entrance_wait_duration = 2.0
+
+[node name="PlayerSpeech" type="NinePatchRect" parent="Player"]
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -20.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/PlayerSpeech"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 48.0
+offset_bottom = 46.0
+bbcode_enabled = true
+script = ExtResource("3_muopr")
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
 position = Vector2(-27, 103)

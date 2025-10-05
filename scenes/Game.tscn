@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cjro2v05p4og7" path="res://assets/Placeholder/Chars/tchitcher.png" id="6_kiw3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
-size = Vector2(321, 31.0788)
+size = Vector2(321, 30.063)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_78awf"]
 
@@ -41,6 +41,7 @@ animations = [{
 script = ExtResource("1_aug50")
 
 [node name="Bg" type="Sprite2D" parent="."]
+z_index = -1000
 position = Vector2(160, 90)
 texture = ExtResource("2_cpr0p")
 
@@ -62,7 +63,7 @@ position = Vector2(160, 90)
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(159.5, 163.298)
+position = Vector2(160, 164)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_78awf")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
@@ -100,7 +101,8 @@ shape = SubResource("RectangleShape2D_aug50")
 position = Vector2(81, 113)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(17, 123)
+z_index = -100
+position = Vector2(17, 125)
 sprite_frames = SubResource("SpriteFrames_qy1jj")
 autoplay = "default"
 frame_progress = 0.266427
