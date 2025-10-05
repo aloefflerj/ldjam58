@@ -225,8 +225,8 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(9, 27)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 5.5
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
@@ -239,6 +239,6 @@ frame_progress = 0.420908
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 10.5)
-shape = SubResource("RectangleShape2D_qhqgy")
+shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]

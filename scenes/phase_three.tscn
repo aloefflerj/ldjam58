@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bupu4lgml2g4o"]
+[gd_scene load_steps=39 format=3 uid="uid://bupu4lgml2g4o"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_etcbv"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_cd8kx"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_phojq"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="6_s2x0x"]
 [ext_resource type="PackedScene" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
+[ext_resource type="Texture2D" uid="uid://i7mmtjdw8wqv" path="res://assets/Placeholder/Chars/floor-guys.png" id="8_s2x0x"]
+[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="9_h3cuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]
 size = Vector2(321, 50.3786)
@@ -97,17 +99,87 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcnm5"]
-size = Vector2(20, 18.0423)
+size = Vector2(14.2628, 15.3974)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hp0l"]
 radius = 7.44186
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2x0x"]
+size = Vector2(94.6913, 7451.59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3cuy"]
+size = Vector2(142.303, 140.834)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw6im"]
+size = Vector2(2301.68, 5616.74)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phojq"]
+size = Vector2(317.482, 880.212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdfg5"]
+atlas = ExtResource("8_s2x0x")
+region = Rect2(195, 0, 65, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc2v4"]
+atlas = ExtResource("8_s2x0x")
+region = Rect2(260, 0, 65, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btww7"]
+atlas = ExtResource("8_s2x0x")
+region = Rect2(325, 0, 65, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku5rn"]
+atlas = ExtResource("8_s2x0x")
+region = Rect2(0, 0, 65, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a57as"]
+atlas = ExtResource("8_s2x0x")
+region = Rect2(65, 0, 65, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrx8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdfg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc2v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btww7")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku5rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a57as")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hp0l"]
+size = Vector2(43.1628, 10.7291)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdfg5"]
+size = Vector2(5295.22, 6203.18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hdjl"]
+size = Vector2(184920, 3.5056e+06)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be54w"]
+size = Vector2(5648.88, 3099.1)
 
 [node name="phase_three" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(160, -90)
+position = Vector2(160, -144)
 texture = ExtResource("1_etcbv")
 
 [node name="Ground" type="Sprite2D" parent="."]
@@ -144,7 +216,7 @@ scale = Vector2(3.66373, 10.9106)
 shape = SubResource("SegmentShape2D_qg70y")
 
 [node name="Player" parent="." instance=ExtResource("2_cd8kx")]
-position = Vector2(14, 124)
+position = Vector2(10, 124)
 phase_path = "res://scenes/phase_four.tscn"
 
 [node name="Phase End" type="Area2D" parent="."]
@@ -156,7 +228,7 @@ shape = SubResource("CircleShape2D_etcbv")
 [node name="Hud" parent="." instance=ExtResource("3_cd8kx")]
 
 [node name="DeskGuy" type="AnimatedSprite2D" parent="."]
-position = Vector2(291, 131)
+position = Vector2(283, 130)
 sprite_frames = SubResource("SpriteFrames_h3cuy")
 animation = &"idle"
 autoplay = "idle"
@@ -168,7 +240,7 @@ position = Vector2(-12, 5)
 scale = Vector2(0.93835, 1.72516)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeskGuy/Repel Spell"]
-position = Vector2(11.7227, -2.31863)
+position = Vector2(14.5913, -0.996162)
 shape = SubResource("RectangleShape2D_gcnm5")
 
 [node name="Weakness" type="Area2D" parent="DeskGuy"]
@@ -182,7 +254,7 @@ scale = Vector2(1, 1.24699)
 shape = SubResource("CapsuleShape2D_4hp0l")
 
 [node name="DeskGuy2" type="AnimatedSprite2D" parent="."]
-position = Vector2(188, 47)
+position = Vector2(203, 47)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_h3cuy")
 animation = &"punch"
@@ -208,6 +280,24 @@ position = Vector2(2.97674, 3.08747)
 scale = Vector2(1, 1.24699)
 shape = SubResource("CapsuleShape2D_4hp0l")
 
+[node name="LeftWall" type="Sprite2D" parent="."]
+position = Vector2(102, -39)
+scale = Vector2(0.105606, 0.0568045)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LeftWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall/StaticBody2D"]
+position = Vector2(520.803, -1925.16)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_s2x0x")
+debug_color = Color(0, 0.640735, 0.345352, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LeftWall/StaticBody2D"]
+position = Vector2(639.3, 598.544)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_h3cuy")
+debug_color = Color(0, 0.645905, 0.24962, 0.42)
+
 [node name="Ground Above" type="Sprite2D" parent="."]
 position = Vector2(214, -42)
 scale = Vector2(0.324971, 0.238337)
@@ -215,7 +305,7 @@ scale = Vector2(0.324971, 0.238337)
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground Above"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Above/StaticBody2D"]
-position = Vector2(191, 49.7981)
+position = Vector2(190.786, 58.7404)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_ejk4j")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
@@ -235,19 +325,82 @@ debug_color = Color(0, 0.658696, 0.215611, 0.42)
 [node name="BottomToUpCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_phojq")]
 target = NodePath("../Player")
 
-[node name="Cabinet" type="Area2D" parent="."]
-position = Vector2(273, -42)
-scale = Vector2(1.52, 1)
+[node name="Cabinet2" type="Sprite2D" parent="."]
+position = Vector2(112.772, -41.2154)
+scale = Vector2(0.0111527, 0.00322675)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Cabinet2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet2/StaticBody2D"]
+position = Vector2(14381.6, -572.258)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_aw6im")
+debug_color = Color(0, 0.647118, 0.219727, 0.42)
+
+[node name="Cabinet" type="Sprite2D" parent="."]
+position = Vector2(102, -39)
+scale = Vector2(0.105606, 0.0568045)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cabinet"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet/StaticBody2D"]
+position = Vector2(1901.06, -352.085)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_phojq")
+debug_color = Color(0, 0.647229, 0.216774, 0.42)
 
-[node name="Cabinet2" type="Area2D" parent="."]
-position = Vector2(304, -60)
-scale = Vector2(1.88, 2.52)
+[node name="FloorGuys" type="AnimatedSprite2D" parent="."]
+position = Vector2(206, -141)
+sprite_frames = SubResource("SpriteFrames_yrx8w")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("9_h3cuy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet2"]
-shape = SubResource("RectangleShape2D_phojq")
+[node name="Weakness" type="Area2D" parent="FloorGuys"]
+position = Vector2(0, 4)
+scale = Vector2(1.34375, 0.97167)
+script = ExtResource("6_s2x0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorGuys/Weakness"]
+position = Vector2(-0.744186, -20.0685)
+scale = Vector2(1, 1.24699)
+shape = SubResource("RectangleShape2D_4hp0l")
+
+[node name="StairWayToHeaven" type="Sprite2D" parent="."]
+position = Vector2(296, -214)
+scale = Vector2(0.0111527, 0.00322675)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StairWayToHeaven"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StairWayToHeaven/StaticBody2D"]
+position = Vector2(-495.658, 8679.94)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_qdfg5")
+debug_color = Color(1.05888e-06, 0.645818, 0.251599, 0.42)
+
+[node name="StairWayToHeaven2" type="Sprite2D" parent="."]
+position = Vector2(224, -257)
+scale = Vector2(0.000124382, 1.04119e-05)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StairWayToHeaven2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StairWayToHeaven2/StaticBody2D"]
+position = Vector2(542682, 4.15389e+06)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3hdjl")
+debug_color = Color(0.0838211, 0.639906, 0.319423, 0.42)
+
+[node name="FloorTop" type="Sprite2D" parent="."]
+position = Vector2(112.772, -41.2154)
+scale = Vector2(0.0111527, 0.00322675)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FloorTop"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorTop/StaticBody2D"]
+position = Vector2(7059.14, -59435.8)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_be54w")
+debug_color = Color(6.06447e-06, 0.645404, 0.260801, 0.42)
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="DeskGuy/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
@@ -256,3 +409,4 @@ shape = SubResource("RectangleShape2D_phojq")
 [connection signal="body_entered" from="DeskGuy2/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="DeskGuy2/Repel Spell" to="DeskGuy2" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="DeskGuy2/Weakness" to="DeskGuy2" method="_on_weakness_body_entered"]
+[connection signal="body_entered" from="FloorGuys/Weakness" to="FloorGuys" method="_on_weakness_body_entered"]
