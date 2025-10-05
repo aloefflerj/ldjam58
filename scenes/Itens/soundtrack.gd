@@ -7,3 +7,7 @@ func _ready() -> void:
 
 func load_soundtrack() -> void:
 	SoundManager.play_clip($AudioPlayer, SoundManager.MAIN_THEME)
+
+
+func _on_audio_player_finished() -> void:
+	load_soundtrack()

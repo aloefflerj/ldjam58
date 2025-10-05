@@ -6,3 +6,5 @@
 script = ExtResource("1_6fr2r")
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]
