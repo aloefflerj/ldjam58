@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func on_budget_updated(new_budget: int) -> void:
 	$BudgeLabel.text = "[b][font_size=11
-][color=#a3c1b7]Bike Budget: $" + str(new_budget) + "[/color][/font_size][/b]"
+][color=#a3c1b7]$" + str(new_budget) + "[/color][/font_size][/b]"
 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()

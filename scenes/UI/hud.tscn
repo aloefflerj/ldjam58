@@ -27,7 +27,7 @@ offset_right = 318.0
 offset_bottom = 19.0
 bbcode_enabled = true
 text = "[b][font_size=11
-][color=#a3c1b7]Bike Budget: $2000[/color][/font_size][/b]"
+][color=#a3c1b7]$2000[/color][/font_size][/b]"
 fit_content = true
 scroll_active = false
 
