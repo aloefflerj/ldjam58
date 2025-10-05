@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bupu4lgml2g4o"]
+[gd_scene load_steps=7 format=3 uid="uid://bupu4lgml2g4o"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_etcbv"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_cd8kx"]
+[ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_cd8kx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]
 size = Vector2(321, 50.3786)
@@ -46,5 +47,7 @@ phase_path = "res://scenes/phase_four.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
 position = Vector2(320, 158)
 shape = SubResource("CircleShape2D_etcbv")
+
+[node name="Hud" parent="." instance=ExtResource("3_cd8kx")]
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]

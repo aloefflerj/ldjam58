@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://6d1ge0mvuvrt"]
+[gd_scene load_steps=6 format=3 uid="uid://6d1ge0mvuvrt"]
 
 [ext_resource type="Texture2D" uid="uid://bbscfqw4t2boj" path="res://assets/Placeholder/Levels/level_5.png" id="1_dw2rk"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_snv5q"]
+[ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_snv5q"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_e8w3v"]
 
@@ -50,3 +51,5 @@ position = Vector2(159.5, 153)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_dw2rk")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="Hud" parent="." instance=ExtResource("3_snv5q")]
