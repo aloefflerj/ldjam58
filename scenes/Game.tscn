@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://36ldmg7cl1xw"]
+[gd_scene load_steps=12 format=3 uid="uid://36ldmg7cl1xw"]
 
 [ext_resource type="Script" uid="uid://c4ah0timuo4pm" path="res://scenes/game.gd" id="1_aug50"]
 [ext_resource type="Texture2D" uid="uid://vvx4dpwhrvtd" path="res://assets/Placeholder/Levels/level1.png" id="2_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_qbsmt"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="5_s0nni"]
-[ext_resource type="PackedScene" uid="uid://cqvo3qfmf7ddx" path="res://scenes/Itens/power_up.tscn" id="6_aug50"]
 [ext_resource type="Texture2D" uid="uid://cjro2v05p4og7" path="res://assets/Placeholder/Chars/tchitcher.png" id="6_kiw3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
@@ -96,9 +95,6 @@ position = Vector2(5.5, 7)
 shape = SubResource("RectangleShape2D_aug50")
 
 [node name="Hud" parent="." instance=ExtResource("5_s0nni")]
-
-[node name="PowerUp" parent="." instance=ExtResource("6_aug50")]
-position = Vector2(81, 113)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -100
