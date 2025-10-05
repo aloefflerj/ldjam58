@@ -18,12 +18,6 @@ func _ready() -> void:
 
 func end_game() -> void:
 	var game_over_instance = game_over_scene.instantiate()
-	var camera_2d_vector = get_tree().root.get_viewport().get_camera_2d()
-	
-	if camera_2d_vector != null:
-		camera_2d_vector.add_child(game_over_instance)
-		pass
-	
 	get_tree().root.add_child(game_over_instance)
 
 
