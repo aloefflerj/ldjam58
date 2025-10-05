@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhavlu7amxo7f"]
+[gd_scene load_steps=20 format=3 uid="uid://2ta67ne7qcjl"]
 
 [ext_resource type="Texture2D" uid="uid://bg752uw50h1qm" path="res://assets/Placeholder/Levels/level_4.png" id="1_uwwse"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_8k08g"]
@@ -104,7 +104,7 @@ shape = SubResource("RectangleShape2D_4cc1m")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
-position = Vector2(-27, 123)
+position = Vector2(295, 110)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
 
@@ -115,12 +115,13 @@ shape = SubResource("SegmentShape2D_hi7l3")
 
 [node name="Player" parent="." instance=ExtResource("2_8k08g")]
 position = Vector2(306, 125)
-phase_path = "res://scenes/phase_five.tscn"
+phase_path = "res://scenes/phase_three_reverse.tscn"
 
-[node name="Phase End" type="Area2D" parent="."]
-position = Vector2(320, 112)
+[node name="Phase End2" type="Area2D" parent="."]
+position = Vector2(60, 65)
+scale = Vector2(1, 2.27929)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End2"]
 position = Vector2(10, 2)
 shape = SubResource("RectangleShape2D_nljod")
 
@@ -147,4 +148,4 @@ debug_color = Color(0, 0.658696, 0.215611, 0.42)
 [node name="PowerUp" parent="." instance=ExtResource("7_4nk7o")]
 position = Vector2(272, 128)
 
-[connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
+[connection signal="body_entered" from="Phase End2" to="Player" method="_on_phase_end_body_entered"]

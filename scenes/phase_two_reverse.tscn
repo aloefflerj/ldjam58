@@ -1,0 +1,200 @@
+[gd_scene load_steps=25 format=3 uid="uid://bel3o086n76ue"]
+
+[ext_resource type="Texture2D" uid="uid://e7qtwmesgia5" path="res://assets/Placeholder/Levels/level_2.png" id="1_ojqpa"]
+[ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_u3d2j"]
+[ext_resource type="Script" uid="uid://b45w5iomsqxqo" path="res://scenes/speech-lvl2.gd" id="3_5j1yi"]
+[ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="4_e43bb"]
+[ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="5_ig35u"]
+[ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="6_cm2nw"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4yk0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq40g"]
+size = Vector2(321, 29.0473)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3ypm"]
+size = Vector2(20, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxunc"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(352, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aohoc"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(396, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7udvf"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(440, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txr0m"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(484, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tudao"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(528, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqmf2"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(572, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ypm"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(0, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rnfh"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(44, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvyw1"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(88, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muopr"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(132, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik5o0"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(176, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yivsk"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(220, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ndfi"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(264, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6q7y"]
+atlas = ExtResource("5_ig35u")
+region = Rect2(308, 0, 44, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsc1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxunc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aohoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7udvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txr0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tudao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqmf2")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3ypm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rnfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvyw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muopr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik5o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yivsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ndfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6q7y")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 8.0
+}]
+
+[node name="PhaseTwo" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(160, 89)
+texture = ExtResource("1_ojqpa")
+
+[node name="Player" parent="." instance=ExtResource("2_u3d2j")]
+unique_name_in_owner = true
+position = Vector2(291, 123)
+phase_path = "res://scenes/Game_reserve.tscn"
+
+[node name="PlayerSpeech" type="NinePatchRect" parent="Player"]
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -20.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/PlayerSpeech"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 48.0
+offset_bottom = 46.0
+bbcode_enabled = true
+script = ExtResource("3_5j1yi")
+
+[node name="Extreme Left Margin" type="Sprite2D" parent="."]
+position = Vector2(295, 115)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Extreme Left Margin/StaticBody2D"]
+position = Vector2(25, -84)
+scale = Vector2(3.66373, 10.9106)
+shape = SubResource("SegmentShape2D_4yk0h")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(-27, 103)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+position = Vector2(191, 60.2981)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_iq40g")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="Phase End" type="Area2D" parent="."]
+position = Vector2(-9, 109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
+position = Vector2(10, -23)
+shape = SubResource("RectangleShape2D_a3ypm")
+
+[node name="Hud" parent="." instance=ExtResource("4_e43bb")]
+
+[node name="Bully" type="AnimatedSprite2D" parent="."]
+position = Vector2(171, 126)
+sprite_frames = SubResource("SpriteFrames_gsc1e")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+script = ExtResource("6_cm2nw")
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]

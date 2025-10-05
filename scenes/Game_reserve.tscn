@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3wa0lbqlhobj"]
+
+[ext_resource type="Script" uid="uid://c4ah0timuo4pm" path="res://scenes/game.gd" id="1_c4vf4"]
+[ext_resource type="Texture2D" uid="uid://vvx4dpwhrvtd" path="res://assets/Placeholder/Levels/level1.png" id="2_yfi8j"]
+[ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="3_ujf5r"]
+[ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="4_6gcyn"]
+[ext_resource type="PackedScene" uid="uid://cqvo3qfmf7ddx" path="res://scenes/Itens/power_up.tscn" id="5_hbkys"]
+[ext_resource type="Texture2D" uid="uid://cjro2v05p4og7" path="res://assets/Placeholder/Chars/tchitcher.png" id="6_hwd5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
+size = Vector2(321, 30.063)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_78awf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aug50"]
+size = Vector2(11, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_400sg"]
+atlas = ExtResource("6_hwd5q")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4kob"]
+atlas = ExtResource("6_hwd5q")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qy1jj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_400sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4kob")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.8
+}]
+
+[node name="PhaseOne" type="Node2D"]
+script = ExtResource("1_c4vf4")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(160, 90)
+texture = ExtResource("2_yfi8j")
+
+[node name="Player" parent="." instance=ExtResource("3_ujf5r")]
+unique_name_in_owner = true
+position = Vector2(267, 123)
+phase_path = "res://scenes/phase_two.tscn"
+level_entrance_wait_duration = 6.5
+start_animation = 5
+start_flipped = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 90)
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Ground" type="Sprite2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+position = Vector2(160, 164)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_78awf")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="Extreme Left Margin" type="Sprite2D" parent="."]
+position = Vector2(-27, 102)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Extreme Left Margin/StaticBody2D"]
+position = Vector2(25, -84)
+scale = Vector2(3.66373, 10.9106)
+shape = SubResource("SegmentShape2D_78awf")
+
+[node name="Extreme Right Margin" type="Sprite2D" parent="."]
+position = Vector2(296, 68)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Extreme Right Margin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Extreme Right Margin/StaticBody2D"]
+position = Vector2(25, -84)
+scale = Vector2(3.66373, 10.9106)
+shape = SubResource("SegmentShape2D_78awf")
+
+[node name="Phase End" type="Area2D" parent="."]
+position = Vector2(320, 114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
+position = Vector2(5.5, 7)
+shape = SubResource("RectangleShape2D_aug50")
+
+[node name="Hud" parent="." instance=ExtResource("4_6gcyn")]
+
+[node name="PowerUp" parent="." instance=ExtResource("5_hbkys")]
+position = Vector2(81, 113)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -100
+position = Vector2(17, 125)
+sprite_frames = SubResource("SpriteFrames_qy1jj")
+autoplay = "default"
+frame_progress = 0.266427
+flip_h = true
+
+[connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
