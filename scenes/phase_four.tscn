@@ -81,7 +81,7 @@ scale = Vector2(3.66373, 10.9106)
 shape = SubResource("SegmentShape2D_hi7l3")
 
 [node name="Player" parent="." instance=ExtResource("2_nljod")]
-position = Vector2(39, 108)
+position = Vector2(90, 124)
 phase_path = "res://scenes/phase_five.tscn"
 
 [node name="Phase End" type="Area2D" parent="."]
@@ -94,17 +94,17 @@ shape = SubResource("RectangleShape2D_nljod")
 [node name="Hud" parent="." instance=ExtResource("3_nljod")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(170, 124)
+position = Vector2(156, 124)
 sprite_frames = SubResource("SpriteFrames_mfbhl")
 autoplay = "default"
 flip_h = true
 
-[node name="Weakness" type="Area2D" parent="."]
-position = Vector2(170, 128)
+[node name="Weakness" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 4)
 scale = Vector2(1.34375, 0.97167)
 script = ExtResource("5_hi7l3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weakness"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Weakness"]
 position = Vector2(0, -15.4373)
 scale = Vector2(1, 1.24699)
 shape = SubResource("CapsuleShape2D_632nh")
