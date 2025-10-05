@@ -10,11 +10,12 @@ func _ready() -> void:
 
 
 func _handle_dialog_text() -> void:
+	await get_tree().create_timer(2.0).timeout
 	self.dialog_text.text = GameManager.player_dialog_text
 
 
 func _handle_show() -> void:
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(6.5).timeout
 	self._reset_dialog()
 
 func _reset_dialog() -> void:

@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://36ldmg7cl1xw"]
+[gd_scene load_steps=9 format=3 uid="uid://36ldmg7cl1xw"]
 
 [ext_resource type="Script" uid="uid://c4ah0timuo4pm" path="res://scenes/game.gd" id="1_aug50"]
 [ext_resource type="Texture2D" uid="uid://vvx4dpwhrvtd" path="res://assets/Placeholder/Levels/level1.png" id="2_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_qbsmt"]
-[ext_resource type="PackedScene" uid="uid://bd5f7qhorkhyi" path="res://scenes/Itens/collectible.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="5_s0nni"]
 [ext_resource type="PackedScene" uid="uid://cqvo3qfmf7ddx" path="res://scenes/Itens/power_up.tscn" id="6_aug50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78awf"]
-size = Vector2(321, 30.0631)
+size = Vector2(321, 31.0788)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_78awf"]
 
@@ -24,8 +23,11 @@ texture = ExtResource("2_cpr0p")
 
 [node name="Player" parent="." instance=ExtResource("2_qbsmt")]
 unique_name_in_owner = true
-position = Vector2(117, 104)
+position = Vector2(291, 123)
 phase_path = "res://scenes/phase_two.tscn"
+level_entrance_wait_duration = 6.5
+start_animation = 5
+start_flipped = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 90)
@@ -37,7 +39,7 @@ position = Vector2(160, 90)
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(159.5, 163.798)
+position = Vector2(159.5, 163.298)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_78awf")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
@@ -68,15 +70,6 @@ position = Vector2(320, 114)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
 position = Vector2(5.5, 7)
 shape = SubResource("RectangleShape2D_aug50")
-
-[node name="Collectible" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(145, 112)
-
-[node name="Collectible2" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(165, 112)
-
-[node name="Collectible3" parent="." instance=ExtResource("4_78awf")]
-position = Vector2(182, 112)
 
 [node name="Hud" parent="." instance=ExtResource("5_s0nni")]
 

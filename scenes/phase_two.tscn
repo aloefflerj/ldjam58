@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://di0alpo8jtk85"]
+[gd_scene load_steps=29 format=3 uid="uid://di0alpo8jtk85"]
 
 [ext_resource type="Texture2D" uid="uid://e7qtwmesgia5" path="res://assets/Placeholder/Levels/level_2.png" id="1_4yk0h"]
+[ext_resource type="Script" uid="uid://c4ah0timuo4pm" path="res://scenes/game.gd" id="1_muopr"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_iq40g"]
 [ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="3_iq40g"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="4_a3ypm"]
@@ -137,12 +138,14 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3ypm"]
 
 [node name="PhaseTwo" type="Node2D"]
+script = ExtResource("1_muopr")
 
 [node name="Bg" type="Sprite2D" parent="."]
 position = Vector2(160, 89)
 texture = ExtResource("1_4yk0h")
 
 [node name="Player" parent="." instance=ExtResource("2_iq40g")]
+unique_name_in_owner = true
 position = Vector2(12, 123)
 phase_path = "res://scenes/phase_three.tscn"
 
@@ -202,6 +205,8 @@ shape = SubResource("CapsuleShape2D_a3ypm")
 
 [node name="Collectible" parent="." instance=ExtResource("6_4rnfh")]
 position = Vector2(241, 130)
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="Bully/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]

@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 
 @export var phase_path: String
+@export var level_entrance_wait_duration: float = 0.0
+@export var start_animation: PlayerState = PlayerState.IDLE
+@export var start_flipped = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sound_player: AudioStreamPlayer2D = $SoundPlayer
 
@@ -9,14 +12,24 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
-enum PlayerState {IDLE, RUN, JUMP, FALL, HIT}
-
+enum PlayerState {IDLE, RUN, JUMP, FALL, HIT, WONDERING}
 
 var _state: PlayerState = PlayerState.IDLE
 var sound_played = false
-var input_enabled = true
+var input_enabled = false
 var got_hit = false
+var waiting_before_level_start = true
 
+func _ready() -> void:
+	
+	if (start_flipped):
+		animated_sprite_2d.flip_h = true
+
+	set_state(start_animation)
+
+	await get_tree().create_timer(level_entrance_wait_duration).timeout
+	input_enabled = true
+	waiting_before_level_start = false
 
 func _physics_process(delta: float) -> void:
 	handle_movement_input_behaviour()
@@ -56,6 +69,9 @@ func _physics_process(delta: float) -> void:
 
 
 func calculate_states() -> void:
+	if waiting_before_level_start:
+		return
+
 	if got_hit:
 		set_state(PlayerState.HIT)
 		return
@@ -80,15 +96,17 @@ func set_state(new_state: PlayerState) -> void:
 	
 	match _state:
 		PlayerState.IDLE:
-			animated_sprite_2d.animation = "idle"
+			animated_sprite_2d.play("idle")
 		PlayerState.RUN:
-			animated_sprite_2d.animation = "run"
+			animated_sprite_2d.play("run")
 		PlayerState.JUMP:
-			animated_sprite_2d.animation = "jump"
+			animated_sprite_2d.play("jump")
 		PlayerState.FALL:
-			animated_sprite_2d.animation = "fall"
+			animated_sprite_2d.play("fall")
 		PlayerState.HIT:
-			animated_sprite_2d.animation = "hit"
+			animated_sprite_2d.play("hit")
+		PlayerState.WONDERING:
+			animated_sprite_2d.play("wondering")
 
 
 func handle_movement_input_behaviour() -> void:

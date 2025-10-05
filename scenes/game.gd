@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var start_text = "[b][font_size=9][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]I want to have a bike[/wave][/color][/font_size][/b]"
 
 @onready var sound_player: AudioStreamPlayer2D = $SoundPlayer
 @onready var player: CharacterBody2D = %Player
@@ -11,7 +12,7 @@ func _ready() -> void:
 
 
 func _handle_dialog() -> void:
-	self._handle_player_dialog_text("[font_size=10]I want to have a bike")
+	self._handle_player_dialog_text(start_text)
 	self._handle_instance_dialog()
 
 

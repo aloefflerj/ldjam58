@@ -10,8 +10,9 @@ script = ExtResource("1_2svjc")
 
 [node name="DialogText" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -40.0
+offset_top = 1.0
+offset_bottom = 41.0
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
