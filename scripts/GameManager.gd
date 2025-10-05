@@ -10,6 +10,7 @@ var game_over_scene = preload("res://scenes/game_over.tscn")
 var player_budget: int = 0
 var power_up_jump_multiply: float = 1.00
 var player_dialog_text: String = self.initial_dialog_text_message
+var camera_global_position: Vector2 = Vector2(0, 0)
 
 
 func _ready() -> void:
@@ -17,6 +18,11 @@ func _ready() -> void:
 
 
 func end_game() -> void:
+	var camera_2d_vector = get_tree().root.get_viewport().get_camera_2d()
+	
+	if camera_2d_vector != null:
+		self.camera_global_position = camera_2d_vector.global_position
+	
 	var game_over_instance = game_over_scene.instantiate()
 	
 	get_tree().root.add_child(game_over_instance)
