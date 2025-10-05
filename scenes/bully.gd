@@ -4,9 +4,6 @@ enum EnemyState {IDLE, PUNCH, HIT}
 
 var _state: EnemyState = EnemyState.IDLE
 
-func _ready() -> void:
-	pass # Replace with function body.
-
 func set_state(new_state: EnemyState) -> void:
 	if new_state == _state:
 		return

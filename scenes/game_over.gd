@@ -8,6 +8,6 @@ func _ready() -> void:
 
 
 func _on_retry_pressed() -> void:
-	get_tree().paused = false	
+	get_tree().paused = false
 	queue_free()
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Game.tscn")

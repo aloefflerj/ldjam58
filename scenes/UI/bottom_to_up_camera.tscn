@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv0sff13ldhhg"]
+
+[ext_resource type="Script" uid="uid://bdytxyvpcgdao" path="res://bottom_to_up_camera.gd" id="1_5uekd"]
+
+[node name="BottomToUpCamera" type="Camera2D"]
+script = ExtResource("1_5uekd")

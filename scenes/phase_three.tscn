@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bupu4lgml2g4o"]
+[gd_scene load_steps=29 format=3 uid="uid://bupu4lgml2g4o"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_etcbv"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_cd8kx"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_cd8kx"]
+[ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="4_bsb5y"]
+[ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_phojq"]
+[ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="6_s2x0x"]
+[ext_resource type="PackedScene" uid="uid://bv0sff13ldhhg" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]
 size = Vector2(321, 50.3786)
@@ -10,6 +14,128 @@ size = Vector2(321, 50.3786)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qg70y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_etcbv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxunc"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(352, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aohoc"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(396, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7udvf"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(440, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txr0m"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(484, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tudao"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(528, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqmf2"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(572, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ypm"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(0, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rnfh"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(44, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvyw1"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(88, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muopr"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(132, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik5o0"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(176, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yivsk"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(220, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ndfi"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(264, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6q7y"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(308, 0, 44, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3cuy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxunc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aohoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7udvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txr0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tudao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqmf2")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3ypm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rnfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvyw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muopr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik5o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yivsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ndfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6q7y")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcnm5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hp0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phojq"]
 
 [node name="phase_three" type="Node2D"]
 
@@ -51,7 +177,7 @@ scale = Vector2(3.66373, 10.9106)
 shape = SubResource("SegmentShape2D_qg70y")
 
 [node name="Player" parent="." instance=ExtResource("2_cd8kx")]
-position = Vector2(14, 119)
+position = Vector2(14, 124)
 phase_path = "res://scenes/phase_four.tscn"
 
 [node name="Phase End" type="Area2D" parent="."]
@@ -62,4 +188,100 @@ shape = SubResource("CircleShape2D_etcbv")
 
 [node name="Hud" parent="." instance=ExtResource("3_cd8kx")]
 
+[node name="Bully" type="AnimatedSprite2D" parent="."]
+position = Vector2(280, 126)
+sprite_frames = SubResource("SpriteFrames_h3cuy")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+script = ExtResource("5_phojq")
+
+[node name="Repel Spell" type="Area2D" parent="Bully"]
+position = Vector2(-12, 5)
+scale = Vector2(0.93835, 1.72516)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/Repel Spell"]
+shape = SubResource("RectangleShape2D_gcnm5")
+
+[node name="Weakness" type="Area2D" parent="Bully"]
+position = Vector2(5, -5)
+scale = Vector2(1.34375, 0.97167)
+script = ExtResource("6_s2x0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully/Weakness"]
+scale = Vector2(1, 1.24699)
+shape = SubResource("CapsuleShape2D_4hp0l")
+
+[node name="Bully2" type="AnimatedSprite2D" parent="."]
+position = Vector2(187, 42)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_h3cuy")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+script = ExtResource("5_phojq")
+
+[node name="Repel Spell" type="Area2D" parent="Bully2"]
+position = Vector2(-13, 6)
+scale = Vector2(0.93835, 1.72516)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully2/Repel Spell"]
+shape = SubResource("RectangleShape2D_gcnm5")
+
+[node name="Weakness" type="Area2D" parent="Bully2"]
+position = Vector2(5, -5)
+scale = Vector2(1.34375, 0.97167)
+script = ExtResource("6_s2x0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bully2/Weakness"]
+scale = Vector2(1, 1.24699)
+shape = SubResource("CapsuleShape2D_4hp0l")
+
+[node name="Ground Above" type="Sprite2D" parent="."]
+position = Vector2(214, -42)
+scale = Vector2(0.324971, 0.238337)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground Above"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Above/StaticBody2D"]
+position = Vector2(191, 49.7981)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_ejk4j")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="Ground Above2" type="Sprite2D" parent="."]
+position = Vector2(142, -129)
+scale = Vector2(0.324971, 0.238337)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground Above2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Above2/StaticBody2D"]
+position = Vector2(191, 49.7981)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_ejk4j")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="BottomToUpCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_phojq")]
+target = NodePath("../Player")
+
+[node name="Cabinet" type="Area2D" parent="."]
+position = Vector2(273, -42)
+scale = Vector2(1.52, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet"]
+shape = SubResource("RectangleShape2D_phojq")
+
+[node name="Cabinet2" type="Area2D" parent="."]
+position = Vector2(304, -60)
+scale = Vector2(1.88, 2.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet2"]
+shape = SubResource("RectangleShape2D_phojq")
+
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
+[connection signal="body_entered" from="Bully/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Bully/Repel Spell" to="Bully" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Bully/Weakness" to="Bully" method="_on_weakness_body_entered"]
+[connection signal="body_entered" from="Bully2/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Bully2/Repel Spell" to="Bully2" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Bully2/Weakness" to="Bully2" method="_on_weakness_body_entered"]
