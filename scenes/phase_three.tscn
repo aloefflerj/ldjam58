@@ -1,14 +1,16 @@
-[gd_scene load_steps=39 format=3 uid="uid://bupu4lgml2g4o"]
+[gd_scene load_steps=58 format=3 uid="uid://bupu4lgml2g4o"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_etcbv"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_cd8kx"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_cd8kx"]
+[ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="4_bsb5y"]
 [ext_resource type="Texture2D" uid="uid://b46oonfgvr1f6" path="res://assets/Placeholder/Chars/deks-guy.png" id="4_phojq"]
 [ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_phojq"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="6_s2x0x"]
 [ext_resource type="PackedScene" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
 [ext_resource type="Texture2D" uid="uid://i7mmtjdw8wqv" path="res://assets/Placeholder/Chars/floor-guys.png" id="8_s2x0x"]
 [ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="9_h3cuy"]
+[ext_resource type="Texture2D" uid="uid://ldf35ubejvii" path="res://assets/Placeholder/Chars/boss.png" id="11_4hp0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]
 size = Vector2(321, 50.3786)
@@ -176,6 +178,128 @@ size = Vector2(184920, 3.5056e+06)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be54w"]
 size = Vector2(5648.88, 3099.1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrx8w"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(352, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sebdb"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(396, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhsk7"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(440, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mneru"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(484, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at1o5"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(528, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfaoa"]
+atlas = ExtResource("4_bsb5y")
+region = Rect2(572, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqnyx"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(0, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mppi6"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(44, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfgsy"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(88, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7cg4"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(132, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga1ea"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(176, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7kta"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(220, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dtvr"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(264, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yodyc"]
+atlas = ExtResource("11_4hp0l")
+region = Rect2(308, 0, 44, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gcnm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrx8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sebdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhsk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mneru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at1o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfaoa")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqnyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mppi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfgsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7cg4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga1ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7kta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dtvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yodyc")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_312v3"]
+size = Vector2(16.3942, 17.5356)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hp0l"]
+radius = 7.44185
+
 [node name="phase_three" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -220,9 +344,10 @@ position = Vector2(10, 124)
 phase_path = "res://scenes/phase_four.tscn"
 
 [node name="Phase End" type="Area2D" parent="."]
+position = Vector2(243, -323)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
-position = Vector2(320, 158)
+position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_etcbv")
 
 [node name="Hud" parent="." instance=ExtResource("3_cd8kx")]
@@ -402,6 +527,30 @@ scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_be54w")
 debug_color = Color(6.06447e-06, 0.645404, 0.260801, 0.42)
 
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+position = Vector2(194, -260)
+sprite_frames = SubResource("SpriteFrames_gcnm5")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("5_phojq")
+
+[node name="Repel Spell" type="Area2D" parent="Boss"]
+position = Vector2(-12, 5)
+scale = Vector2(0.93835, 1.72516)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Repel Spell"]
+position = Vector2(15.2483, 0.652603)
+shape = SubResource("RectangleShape2D_312v3")
+
+[node name="Weakness" type="Area2D" parent="Boss"]
+position = Vector2(5, -5)
+scale = Vector2(1.34375, 0.97167)
+script = ExtResource("6_s2x0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Weakness"]
+position = Vector2(-7.44186, -8.23325)
+shape = SubResource("CircleShape2D_4hp0l")
+
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="DeskGuy/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="DeskGuy/Repel Spell" to="DeskGuy" method="_on_repel_spell_body_entered"]
@@ -410,3 +559,6 @@ debug_color = Color(6.06447e-06, 0.645404, 0.260801, 0.42)
 [connection signal="body_entered" from="DeskGuy2/Repel Spell" to="DeskGuy2" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="DeskGuy2/Weakness" to="DeskGuy2" method="_on_weakness_body_entered"]
 [connection signal="body_entered" from="FloorGuys/Weakness" to="FloorGuys" method="_on_weakness_body_entered"]
+[connection signal="body_entered" from="Boss/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Boss/Repel Spell" to="Boss" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Boss/Weakness" to="Boss" method="_on_weakness_body_entered"]

@@ -121,7 +121,7 @@ shape = SubResource("SegmentShape2D_hi7l3")
 [node name="Player" parent="." instance=ExtResource("2_nljod")]
 position = Vector2(90, 124)
 phase_path = "res://scenes/phase_five.tscn"
-level_entrance_wait_duration = 2.0
+level_entrance_wait_duration = 4.0
 
 [node name="PlayerSpeech" type="NinePatchRect" parent="Player"]
 offset_left = -20.0
