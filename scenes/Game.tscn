@@ -22,6 +22,7 @@ position = Vector2(160, 90)
 texture = ExtResource("2_cpr0p")
 
 [node name="Player" parent="." instance=ExtResource("2_qbsmt")]
+unique_name_in_owner = true
 position = Vector2(117, 104)
 phase_path = "res://scenes/phase_two.tscn"
 
