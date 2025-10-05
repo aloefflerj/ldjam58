@@ -1,23 +1,32 @@
 extends Node2D
 
+
 func _ready() -> void:
-	get_tree().paused = true
-	
-	GameManager.player_budget = 0
-	GameManager.power_up_jump_multiply = 1
-	
-	if GameManager.camera_global_position.y != 0:
-		self.global_position = GameManager.camera_global_position
+	self._pause()
+	self._on_ready_reset_base_mechanics()
+
+
+func _on_ready_reset_base_mechanics() -> void:
+	GameManager.handle_base_mechanics()
+
+
+func _pause() -> void:
+	GameManager.handle_game_pause(true)
+
+
+func _unpause() -> void:
+	GameManager.handle_game_pause(false)
 
 
 func _on_retry_pressed() -> void:
-	get_tree().paused = false
-	queue_free()
+	self._unpause()
+	self._self_remove()
+	self._restart_game()
+
+
+func _self_remove() -> void:
+	self.queue_free()
+
+
+func _restart_game() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Game.tscn")
-
-	self._on_reset_global_position_properties()
-
-
-func _on_reset_global_position_properties() -> void:
-	self.global_position = Vector2(0, 0)
-	GameManager.camera_global_position = self.global_position

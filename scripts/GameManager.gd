@@ -20,10 +20,12 @@ func _ready() -> void:
 func end_game() -> void:
 	var camera_2d_vector = get_tree().root.get_viewport().get_camera_2d()
 	
-	if camera_2d_vector != null:
-		self.camera_global_position = camera_2d_vector.global_position
-	
 	var game_over_instance = game_over_scene.instantiate()
+	
+	if camera_2d_vector != null:
+		camera_2d_vector.add_child(game_over_instance)
+		# self.camera_global_position = camera_2d_vector.global_position
+		return
 	
 	get_tree().root.add_child(game_over_instance)
 
@@ -39,6 +41,15 @@ func increase_power_up_jump_multiply(multiply_value: float = 0.25) -> void:
 
 func reset_player_dialog_text() -> void:
 	self.player_dialog_text = self.initial_dialog_text_message
+
+
+func handle_game_pause(paused: bool) -> void:
+	get_tree().paused = paused
+
+
+func handle_base_mechanics() -> void:
+	GameManager.player_budget = 0
+	GameManager.power_up_jump_multiply = 1
 
 
 func _play_soundtrack() -> void:
