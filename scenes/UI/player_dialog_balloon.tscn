@@ -13,6 +13,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 bbcode_enabled = true
-text = "[font_size=10]I want to have a bike"
 fit_content = true
 scroll_active = false
