@@ -1,14 +1,15 @@
-[gd_scene load_steps=27 format=3 uid="uid://bd0c0uhiwxx3h"]
+[gd_scene load_steps=28 format=3 uid="uid://bd0c0uhiwxx3h"]
 
 [ext_resource type="Texture2D" uid="uid://bg752uw50h1qm" path="res://assets/Placeholder/Levels/level_4.png" id="1_dca4l"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_nljod"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_nljod"]
 [ext_resource type="Texture2D" uid="uid://mrbjcn6b8klo" path="res://assets/Placeholder/Chars/lady.png" id="4_4cc1m"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="5_632nh"]
+[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="5_632nh"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="5_hi7l3"]
 [ext_resource type="Script" uid="uid://bbgklsccexk67" path="res://scenes/lady_speech.gd" id="7_bgdvv"]
 [ext_resource type="Script" uid="uid://d4k1durj08gtl" path="res://scenes/speech-lvl4.gd" id="8_4bgdy"]
 [ext_resource type="Texture2D" uid="uid://ldf35ubejvii" path="res://assets/Placeholder/Chars/boss.png" id="9_mfbhl"]
+[ext_resource type="PackedScene" uid="uid://bd5f7qhorkhyi" path="res://scenes/Itens/collectible.tscn" id="10_ueai5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cc1m"]
 size = Vector2(321, 30.0631)
@@ -221,6 +222,15 @@ position = Vector2(247, 126)
 sprite_frames = SubResource("SpriteFrames_4bgdy")
 autoplay = "default"
 frame_progress = 0.700932
+
+[node name="Collectible" parent="." instance=ExtResource("10_ueai5")]
+position = Vector2(271, 130)
+
+[node name="Collectible2" parent="." instance=ExtResource("10_ueai5")]
+position = Vector2(286, 110)
+
+[node name="Collectible3" parent="." instance=ExtResource("10_ueai5")]
+position = Vector2(302, 130)
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="Lady/Weakness" to="Lady" method="_on_weakness_body_entered"]

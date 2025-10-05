@@ -1,13 +1,15 @@
-[gd_scene load_steps=51 format=3 uid="uid://t206kkw7hmgn"]
+[gd_scene load_steps=63 format=3 uid="uid://t206kkw7hmgn"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_ak5vu"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_0exkl"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_qhkdo"]
 [ext_resource type="Texture2D" uid="uid://b46oonfgvr1f6" path="res://assets/Placeholder/Chars/deks-guy.png" id="4_3fsns"]
 [ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_qnmg2"]
-[ext_resource type="PackedScene" uid="uid://bv0sff13ldhhg" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_onqwx"]
+[ext_resource type="PackedScene" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_onqwx"]
 [ext_resource type="Texture2D" uid="uid://i7mmtjdw8wqv" path="res://assets/Placeholder/Chars/floor-guys.png" id="8_d0kvr"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="9_onqr7"]
+[ext_resource type="PackedScene" uid="uid://cqvo3qfmf7ddx" path="res://scenes/Itens/power_up.tscn" id="9_0exkl"]
+[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="9_onqr7"]
+[ext_resource type="Texture2D" uid="uid://druwuyryyunql" path="res://assets/Placeholder/Collectible/beer.png" id="10_0exkl"]
 [ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="10_yuk0b"]
 [ext_resource type="Texture2D" uid="uid://ldf35ubejvii" path="res://assets/Placeholder/Chars/boss.png" id="11_bve8g"]
 
@@ -153,6 +155,77 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhkdo"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fsns"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnmg2"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qae36"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onqwx"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0kvr"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onqr7"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuk0b"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bve8g"]
+atlas = ExtResource("10_0exkl")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3fsns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhkdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fsns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnmg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qae36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onqwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0kvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onqr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuk0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bve8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdfg5"]
@@ -318,7 +391,8 @@ position = Vector2(-28, 150)
 [node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
 
 [node name="Player" parent="." instance=ExtResource("2_0exkl")]
-position = Vector2(193, -389)
+z_index = 100
+position = Vector2(212, -263)
 phase_path = "res://scenes/phase_two_reverse.tscn"
 
 [node name="Hud" parent="." instance=ExtResource("3_qhkdo")]
@@ -406,11 +480,18 @@ shape = SubResource("RectangleShape2D_phojq")
 debug_color = Color(0, 0.647229, 0.216774, 0.42)
 
 [node name="FloorGuys" type="AnimatedSprite2D" parent="."]
-position = Vector2(206, -141)
+position = Vector2(47, 131)
 sprite_frames = SubResource("SpriteFrames_yrx8w")
 animation = &"idle"
 autoplay = "idle"
 script = ExtResource("9_onqr7")
+
+[node name="PowerUp" parent="FloorGuys" instance=ExtResource("9_0exkl")]
+position = Vector2(70, -3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FloorGuys/PowerUp"]
+sprite_frames = SubResource("SpriteFrames_3fsns")
+autoplay = "default"
 
 [node name="StairWayToHeaven" type="Sprite2D" parent="."]
 position = Vector2(296, -214)
@@ -469,7 +550,7 @@ shape = SubResource("RectangleShape2D_h3cuy")
 debug_color = Color(0, 0.645905, 0.24962, 0.42)
 
 [node name="Phase End" type="Area2D" parent="."]
-position = Vector2(60, 65)
+position = Vector2(-23, 66)
 scale = Vector2(1, 2.27929)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]

@@ -70,17 +70,17 @@ offset_top = 8.0
 offset_right = 48.0
 offset_bottom = 48.0
 bbcode_enabled = true
-text = "[b][font_size=9][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]On sale $2000[/wave][/color][/font_size][/b]"
+text = "[b][font_size=9][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]For Sale $2000[/wave][/color][/font_size][/b]"
 
 [node name="GoBackPlate" type="RichTextLabel" parent="."]
 visible = false
-offset_left = 129.0
-offset_top = 75.0
-offset_right = 183.0
-offset_bottom = 91.0
+offset_left = 9.0
+offset_top = 121.0
+offset_right = 63.0
+offset_bottom = 137.0
 bbcode_enabled = true
-text = "[b][font_size=11
-][color=#a3c1b7][pulse freq=1.0 color=#ffffff40 ease=-2.0]GO BACK[/pulse][/color][/font_size][/b]"
+text = "[b][font_size=9.9
+][color=#a3c1b7][pulse freq=1.0 color=#ffffff40 ease=-2.0]<< GO BACK[/pulse][/color][/font_size][/b]"
 fit_content = true
 scroll_active = false
 
@@ -90,6 +90,18 @@ position = Vector2(-9, 128)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_e8w3v")
+
+[node name="Ground2" type="Sprite2D" parent="."]
+position = Vector2(235, 0)
+scale = Vector2(0.354167, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D"]
+position = Vector2(108.867, 163.298)
+scale = Vector2(1.02695, 0.984468)
+shape = SubResource("RectangleShape2D_dw2rk")
+debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
 [connection signal="body_entered" from="Repel Spell" to="." method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="Repel Spell" to="Player" method="_on_repel_spell_body_entered"]

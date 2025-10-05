@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bupu4lgml2g4o"]
+[gd_scene load_steps=59 format=3 uid="uid://bupu4lgml2g4o"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_etcbv"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_cd8kx"]
@@ -7,10 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b46oonfgvr1f6" path="res://assets/Placeholder/Chars/deks-guy.png" id="4_phojq"]
 [ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_phojq"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="6_s2x0x"]
-[ext_resource type="PackedScene" uid="uid://bv0sff13ldhhg" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
+[ext_resource type="PackedScene" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
 [ext_resource type="Texture2D" uid="uid://i7mmtjdw8wqv" path="res://assets/Placeholder/Chars/floor-guys.png" id="8_s2x0x"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="9_h3cuy"]
+[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="9_h3cuy"]
 [ext_resource type="Texture2D" uid="uid://ldf35ubejvii" path="res://assets/Placeholder/Chars/boss.png" id="11_4hp0l"]
+[ext_resource type="PackedScene" uid="uid://bd5f7qhorkhyi" path="res://scenes/Itens/collectible.tscn" id="12_aw6im"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]
 size = Vector2(321, 50.3786)
@@ -544,14 +545,46 @@ script = ExtResource("6_s2x0x")
 position = Vector2(-7.44186, -8.23325)
 shape = SubResource("CircleShape2D_4hp0l")
 
+[node name="Collectible" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(239, -330)
+
+[node name="Collectible2" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(201, 132)
+
+[node name="Collectible3" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(274, 58)
+
+[node name="Collectible4" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(177, -27)
+
+[node name="Collectible5" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(301, -101)
+
+[node name="Collectible6" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(242, -211)
+
+[node name="Collectible7" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(290, -248)
+
+[node name="Phase End2" type="Area2D" parent="."]
+position = Vector2(130, 47)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End2"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_etcbv")
+
+[node name="Collectible8" parent="." instance=ExtResource("12_aw6im")]
+position = Vector2(128, 48)
+
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="DeskGuy/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="DeskGuy/Repel Spell" to="DeskGuy" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="DeskGuy/Weakness" to="DeskGuy" method="_on_weakness_body_entered"]
-[connection signal="body_entered" from="DeskGuy2/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="DeskGuy2/Repel Spell" to="Player" method="_on_repel_spell_body_entered_right"]
 [connection signal="body_entered" from="DeskGuy2/Repel Spell" to="DeskGuy2" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="DeskGuy2/Weakness" to="DeskGuy2" method="_on_weakness_body_entered"]
 [connection signal="body_entered" from="FloorGuys/Weakness" to="FloorGuys" method="_on_weakness_body_entered"]
-[connection signal="body_entered" from="Boss/Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Boss/Repel Spell" to="Player" method="_on_repel_spell_body_entered_right"]
 [connection signal="body_entered" from="Boss/Repel Spell" to="Boss" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="Boss/Weakness" to="Boss" method="_on_weakness_body_entered"]
+[connection signal="body_entered" from="Phase End2" to="Player" method="_on_final_level_enter"]

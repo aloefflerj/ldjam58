@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var score_value: int = 100
+@export var score_value: int = 200
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)

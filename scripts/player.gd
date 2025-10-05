@@ -144,3 +144,19 @@ func _on_repel_spell_body_entered(body: Node2D) -> void:
 		if self.got_hit:
 			await get_tree().create_timer(1.6).timeout
 			GameManager.end_game()
+
+
+func _on_repel_spell_body_entered_right(body:Node2D) -> void:
+	if body.is_in_group("player"):
+		input_enabled = false
+		got_hit = true
+		velocity = Vector2(500, -50)
+		
+		if self.got_hit:
+			await get_tree().create_timer(1.6).timeout
+			GameManager.end_game()
+
+
+func _on_final_level_enter(body:Node2D) -> void:
+	if body.is_in_group("player"):
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/phase_five.tscn")

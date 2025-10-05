@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://2ta67ne7qcjl"]
+[gd_scene load_steps=31 format=3 uid="uid://2ta67ne7qcjl"]
 
 [ext_resource type="Texture2D" uid="uid://bg752uw50h1qm" path="res://assets/Placeholder/Levels/level_4.png" id="1_uwwse"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_8k08g"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="4_rkxe5"]
 [ext_resource type="Texture2D" uid="uid://mrbjcn6b8klo" path="res://assets/Placeholder/Chars/lady.png" id="5_asoft"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="6_dvk6f"]
+[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="6_dvk6f"]
 [ext_resource type="PackedScene" uid="uid://cqvo3qfmf7ddx" path="res://scenes/Itens/power_up.tscn" id="7_4nk7o"]
+[ext_resource type="Texture2D" uid="uid://dr5poj4y86ior" path="res://assets/Placeholder/Collectible/heart.png" id="7_uwwse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cc1m"]
 size = Vector2(321, 30.0631)
@@ -87,9 +88,81 @@ animations = [{
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_632nh"]
 points = PackedVector2Array(7.79004, -58.9151, -1.94753, -63.9939, -14.6064, -52.8204, -24.3439, -34.5364, -20.4489, -7.11044, -13.6326, -7.11044, -7.79007, -4.06311, -8.76382, 15.2366, 6.81628, 15.2366, 8.76379, -7.11044, 19.4751, -10.1578, 19.4751, -41.6469)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k08g"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l5tn"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkxe5"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asoft"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvk6f"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysou2"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu5nl"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4mgj"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qbeq"]
+atlas = ExtResource("7_uwwse")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhhy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k08g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l5tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkxe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asoft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvk6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysou2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu5nl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4mgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qbeq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="phase four" type="Node2D"]
 
 [node name="Bg" type="Sprite2D" parent="."]
+z_index = -1000
 position = Vector2(160, 90)
 texture = ExtResource("1_uwwse")
 
@@ -128,6 +201,7 @@ shape = SubResource("RectangleShape2D_nljod")
 [node name="Hud" parent="." instance=ExtResource("4_rkxe5")]
 
 [node name="Lady" type="AnimatedSprite2D" parent="."]
+z_index = -100
 position = Vector2(147, 124)
 sprite_frames = SubResource("SpriteFrames_mfbhl")
 autoplay = "default"
@@ -146,6 +220,10 @@ shape = SubResource("ConvexPolygonShape2D_632nh")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
 [node name="PowerUp" parent="." instance=ExtResource("7_4nk7o")]
-position = Vector2(272, 128)
+position = Vector2(263, 127)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PowerUp"]
+sprite_frames = SubResource("SpriteFrames_yhhy8")
+autoplay = "default"
 
 [connection signal="body_entered" from="Phase End2" to="Player" method="_on_phase_end_body_entered"]
