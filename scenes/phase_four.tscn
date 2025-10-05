@@ -1,15 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd0c0uhiwxx3h"]
+[gd_scene load_steps=15 format=3 uid="uid://bd0c0uhiwxx3h"]
 
 [ext_resource type="Texture2D" uid="uid://bg752uw50h1qm" path="res://assets/Placeholder/Levels/level_4.png" id="1_dca4l"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_nljod"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_nljod"]
+[ext_resource type="Texture2D" uid="uid://mrbjcn6b8klo" path="res://assets/Placeholder/Chars/lady.png" id="4_4cc1m"]
+[ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="5_hi7l3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cc1m"]
-size = Vector2(321, 52)
+size = Vector2(321, 31.0789)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hi7l3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dca4l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nljod"]
+size = Vector2(20, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi7l3"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_632nh"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgdvv"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bgdy"]
+atlas = ExtResource("4_4cc1m")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfbhl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi7l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_632nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgdvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bgdy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_632nh"]
+radius = 2.23257
+height = 4.95187
 
 [node name="phase four" type="Node2D"]
 
@@ -22,13 +65,13 @@ texture = ExtResource("1_dca4l")
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(159.5, 153)
+position = Vector2(159.5, 163.298)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_4cc1m")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
-position = Vector2(-27, 103)
+position = Vector2(-27, 123)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
 
@@ -45,8 +88,25 @@ phase_path = "res://scenes/phase_five.tscn"
 position = Vector2(320, 112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
-shape = SubResource("CircleShape2D_dca4l")
+position = Vector2(10, 2)
+shape = SubResource("RectangleShape2D_nljod")
 
 [node name="Hud" parent="." instance=ExtResource("3_nljod")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(170, 124)
+sprite_frames = SubResource("SpriteFrames_mfbhl")
+autoplay = "default"
+flip_h = true
+
+[node name="Weakness" type="Area2D" parent="."]
+position = Vector2(170, 128)
+scale = Vector2(1.34375, 0.97167)
+script = ExtResource("5_hi7l3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weakness"]
+position = Vector2(0, -15.4373)
+scale = Vector2(1, 1.24699)
+shape = SubResource("CapsuleShape2D_632nh")
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
