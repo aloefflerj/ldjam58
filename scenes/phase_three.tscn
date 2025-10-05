@@ -1,134 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://bupu4lgml2g4o"]
+[gd_scene load_steps=7 format=3 uid="uid://bupu4lgml2g4o"]
 
 [ext_resource type="Texture2D" uid="uid://bd1c615bp8t6b" path="res://assets/Placeholder/Levels/level_3.png" id="1_etcbv"]
-[ext_resource type="Texture2D" uid="uid://bguolgyddqms" path="res://assets/Placeholder/Chars/bully.png" id="2_bsb5y"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_cd8kx"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_cd8kx"]
-[ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="3_phojq"]
-[ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="4_s2x0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]
 size = Vector2(321, 50.3786)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxunc"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(352, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aohoc"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(396, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7udvf"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(440, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_txr0m"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(484, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tudao"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(528, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqmf2"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(572, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3ypm"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(0, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4rnfh"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(44, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hvyw1"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(88, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_muopr"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(132, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ik5o0"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(176, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yivsk"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(220, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ndfi"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(264, 0, 44, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n6q7y"]
-atlas = ExtResource("2_bsb5y")
-region = Rect2(308, 0, 44, 44)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_h3cuy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cxunc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aohoc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7udvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_txr0m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tudao")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqmf2")
-}],
-"loop": false,
-"name": &"hit",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a3ypm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4rnfh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hvyw1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_muopr")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ik5o0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yivsk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ndfi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n6q7y")
-}],
-"loop": false,
-"name": &"punch",
-"speed": 8.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcnm5"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hp0l"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qg70y"]
 
@@ -163,30 +40,6 @@ scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_ejk4j")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
-[node name="Bully" type="AnimatedSprite2D" parent="Roof Entrance"]
-position = Vector2(171, 126)
-sprite_frames = SubResource("SpriteFrames_h3cuy")
-animation = &"idle"
-autoplay = "idle"
-flip_h = true
-script = ExtResource("3_phojq")
-
-[node name="Repel Spell" type="Area2D" parent="Roof Entrance/Bully"]
-position = Vector2(-10, 5)
-scale = Vector2(0.93835, 1.72516)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof Entrance/Bully/Repel Spell"]
-shape = SubResource("RectangleShape2D_gcnm5")
-
-[node name="Weakness" type="Area2D" parent="Roof Entrance/Bully"]
-position = Vector2(5, -5)
-scale = Vector2(1.34375, 0.97167)
-script = ExtResource("4_s2x0x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof Entrance/Bully/Weakness"]
-scale = Vector2(1, 1.24699)
-shape = SubResource("CapsuleShape2D_4hp0l")
-
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
 position = Vector2(-28, 150)
 
@@ -209,6 +62,4 @@ shape = SubResource("CircleShape2D_etcbv")
 
 [node name="Hud" parent="." instance=ExtResource("3_cd8kx")]
 
-[connection signal="body_entered" from="Roof Entrance/Bully/Repel Spell" to="Roof Entrance/Bully" method="_on_repel_spell_body_entered"]
-[connection signal="body_entered" from="Roof Entrance/Bully/Weakness" to="Roof Entrance/Bully" method="_on_weakness_body_entered"]
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
