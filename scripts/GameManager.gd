@@ -2,13 +2,17 @@ extends Node
 
 
 signal budget_updated(new_budget)
+signal end_game_started(value)
+
 
 const initial_dialog_text_message: String = "ERROR!"
+
 
 var soundtrack_game_scene = preload("res://scenes/Itens/soundtrack.tscn")
 var player_budget: int = 0
 var power_up_jump_multiply: float = 1.00
 var player_dialog_text: String = self.initial_dialog_text_message
+var is_game_ended: bool = false
 
 
 func _ready() -> void:
@@ -16,7 +20,8 @@ func _ready() -> void:
 
 
 func end_game() -> void:
-	pass
+	self.is_game_ended = true
+	self.end_game_started.emit(self.is_game_ended)
 
 
 func increase_budget(value: int) -> void:
@@ -39,6 +44,7 @@ func handle_game_pause(paused: bool) -> void:
 func handle_base_mechanics() -> void:
 	GameManager.player_budget = 0
 	GameManager.power_up_jump_multiply = 1
+	GameManager.is_game_ended = false
 
 
 func _play_soundtrack() -> void:

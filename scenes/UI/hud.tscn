@@ -15,6 +15,16 @@ text = "Budget: $0"
 [node name="Retry" type="MenuButton" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
-text = "Retry"
+scale = Vector2(4.37156, 2.45677)
+
+[node name="RetryButtonLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[b][font_size=12
+][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]Retry[/wave][/color][/font_size][/b]"
+fit_content = true
+scroll_active = false
 
 [connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

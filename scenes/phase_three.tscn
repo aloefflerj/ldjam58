@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b46oonfgvr1f6" path="res://assets/Placeholder/Chars/deks-guy.png" id="4_phojq"]
 [ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_phojq"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="6_s2x0x"]
-[ext_resource type="PackedScene" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
+[ext_resource type="PackedScene" uid="uid://bv0sff13ldhhg" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
 [ext_resource type="Texture2D" uid="uid://i7mmtjdw8wqv" path="res://assets/Placeholder/Chars/floor-guys.png" id="8_s2x0x"]
-[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="9_h3cuy"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="9_h3cuy"]
 [ext_resource type="Texture2D" uid="uid://ldf35ubejvii" path="res://assets/Placeholder/Chars/boss.png" id="11_4hp0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]
@@ -413,13 +413,11 @@ scale = Vector2(0.105606, 0.0568045)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall/StaticBody2D"]
 position = Vector2(520.803, -1925.16)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s2x0x")
 debug_color = Color(0, 0.640735, 0.345352, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LeftWall/StaticBody2D"]
 position = Vector2(639.3, 598.544)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h3cuy")
 debug_color = Color(0, 0.645905, 0.24962, 0.42)
 
@@ -458,7 +456,6 @@ scale = Vector2(0.0111527, 0.00322675)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet2/StaticBody2D"]
 position = Vector2(14381.6, -572.258)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aw6im")
 debug_color = Color(0, 0.647118, 0.219727, 0.42)
 
@@ -470,7 +467,6 @@ scale = Vector2(0.105606, 0.0568045)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet/StaticBody2D"]
 position = Vector2(1901.06, -352.085)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_phojq")
 debug_color = Color(0, 0.647229, 0.216774, 0.42)
 
@@ -499,7 +495,6 @@ scale = Vector2(0.0111527, 0.00322675)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StairWayToHeaven/StaticBody2D"]
 position = Vector2(-495.658, 8679.94)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qdfg5")
 debug_color = Color(1.05888e-06, 0.645818, 0.251599, 0.42)
 
@@ -511,7 +506,6 @@ scale = Vector2(0.000124382, 1.04119e-05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StairWayToHeaven2/StaticBody2D"]
 position = Vector2(542682, 4.15389e+06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3hdjl")
 debug_color = Color(0.0838211, 0.639906, 0.319423, 0.42)
 
@@ -523,7 +517,6 @@ scale = Vector2(0.0111527, 0.00322675)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorTop/StaticBody2D"]
 position = Vector2(7059.14, -59435.8)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_be54w")
 debug_color = Color(6.06447e-06, 0.645404, 0.260801, 0.42)
 
