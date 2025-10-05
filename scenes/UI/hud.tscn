@@ -11,3 +11,10 @@ offset_top = 2.0
 offset_right = 320.0
 offset_bottom = 25.0
 text = "Budget: $0"
+
+[node name="Retry" type="MenuButton" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Retry"
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
