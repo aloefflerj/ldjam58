@@ -58,4 +58,4 @@ shape = SubResource("CircleShape2D_fxpl8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fb57y")
 autoplay = "default"
-frame_progress = 0.872631
+frame_progress = 0.0253164
