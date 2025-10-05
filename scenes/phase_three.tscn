@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b46oonfgvr1f6" path="res://assets/Placeholder/Chars/deks-guy.png" id="4_phojq"]
 [ext_resource type="Script" uid="uid://dg470oql1u8kt" path="res://scenes/bully.gd" id="5_phojq"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="6_s2x0x"]
-[ext_resource type="PackedScene" uid="uid://bv0sff13ldhhg" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
+[ext_resource type="PackedScene" path="res://scenes/UI/bottom_to_up_camera.tscn" id="7_phojq"]
 [ext_resource type="Texture2D" uid="uid://i7mmtjdw8wqv" path="res://assets/Placeholder/Chars/floor-guys.png" id="8_s2x0x"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="9_h3cuy"]
+[ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="9_h3cuy"]
 [ext_resource type="Texture2D" uid="uid://ldf35ubejvii" path="res://assets/Placeholder/Chars/boss.png" id="11_4hp0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejk4j"]

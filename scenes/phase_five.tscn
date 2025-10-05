@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6d1ge0mvuvrt"]
+[gd_scene load_steps=7 format=3 uid="uid://6d1ge0mvuvrt"]
 
 [ext_resource type="Texture2D" uid="uid://bbscfqw4t2boj" path="res://assets/Placeholder/Levels/level_5.png" id="1_dw2rk"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_snv5q"]
@@ -7,7 +7,10 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_e8w3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw2rk"]
-size = Vector2(321, 52)
+size = Vector2(222.391, 31.0789)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snv5q"]
+size = Vector2(382.586, 17.5356)
 
 [node name="phase_five" type="Node2D"]
 
@@ -16,7 +19,7 @@ position = Vector2(160, 90)
 texture = ExtResource("1_dw2rk")
 
 [node name="Player" parent="." instance=ExtResource("2_snv5q")]
-position = Vector2(16, 110)
+position = Vector2(16, 123)
 phase_path = "res://scenes/phase_four.tscn"
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
@@ -35,21 +38,34 @@ scale = Vector2(0.354167, 1)
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(159.5, 153)
-scale = Vector2(1.02695, 0.984468)
-shape = SubResource("RectangleShape2D_dw2rk")
-debug_color = Color(0, 0.658696, 0.215611, 0.42)
-
-[node name="Ground2" type="Sprite2D" parent="."]
-position = Vector2(245, 1)
-scale = Vector2(0.354167, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ground2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D"]
-position = Vector2(159.5, 153)
+position = Vector2(108.867, 163.298)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_dw2rk")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
 
 [node name="Hud" parent="." instance=ExtResource("3_snv5q")]
+
+[node name="Repel Spell" type="Area2D" parent="."]
+position = Vector2(-77, 119)
+scale = Vector2(0.93835, 1.72516)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Repel Spell"]
+position = Vector2(256.834, 81.1519)
+shape = SubResource("RectangleShape2D_snv5q")
+
+[node name="LadySpeech" type="NinePatchRect" parent="."]
+offset_left = 252.0
+offset_top = 65.0
+offset_right = 292.0
+offset_bottom = 105.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LadySpeech"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+bbcode_enabled = true
+text = "[b][font_size=9][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]On sale $2000[/wave][/color][/font_size][/b]"
+
+[connection signal="body_entered" from="Repel Spell" to="Player" method="_on_repel_spell_body_entered"]

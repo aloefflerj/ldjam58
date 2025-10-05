@@ -18,7 +18,8 @@ func on_budget_updated(new_budget: int) -> void:
 
 
 func _on_retry_pressed() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/Game.tscn")
+	# get_tree().call_deferred("change_scene_to_file", "res://scenes/Game.tscn")
+	get_tree().reload_current_scene()
 	self._on_retry_reset_base_mechanics()
 
 
