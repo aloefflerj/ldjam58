@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bd0c0uhiwxx3h"]
+[gd_scene load_steps=23 format=3 uid="uid://bd0c0uhiwxx3h"]
 
 [ext_resource type="Texture2D" uid="uid://bg752uw50h1qm" path="res://assets/Placeholder/Levels/level_4.png" id="1_dca4l"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_nljod"]
@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://mrbjcn6b8klo" path="res://assets/Placeholder/Chars/lady.png" id="4_4cc1m"]
 [ext_resource type="Script" uid="uid://dcpbg3g6271um" path="res://scenes/npc.gd" id="5_632nh"]
 [ext_resource type="Script" uid="uid://cx1b2xavjir4i" path="res://scenes/weakness.gd" id="5_hi7l3"]
+[ext_resource type="Script" uid="uid://bbgklsccexk67" path="res://scenes/lady_speech.gd" id="7_bgdvv"]
+[ext_resource type="Script" uid="uid://d4k1durj08gtl" path="res://scenes/speech-lvl4.gd" id="8_4bgdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cc1m"]
-size = Vector2(321, 31.0789)
+size = Vector2(321, 30.0631)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hi7l3"]
 
@@ -84,9 +86,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_632nh"]
-radius = 2.23257
-height = 4.95187
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgdvv"]
+size = Vector2(8.93024, 2.47594)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_632nh"]
 points = PackedVector2Array(7.79004, -58.9151, -1.94753, -63.9939, -14.6064, -52.8204, -24.3439, -34.5364, -20.4489, -7.11044, -13.6326, -7.11044, -7.79007, -4.06311, -8.76382, 15.2366, 6.81628, 15.2366, 8.76379, -7.11044, 19.4751, -10.1578, 19.4751, -41.6469)
@@ -102,7 +103,7 @@ texture = ExtResource("1_dca4l")
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(159.5, 163.298)
+position = Vector2(159.5, 163.798)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("RectangleShape2D_4cc1m")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
@@ -120,6 +121,22 @@ shape = SubResource("SegmentShape2D_hi7l3")
 [node name="Player" parent="." instance=ExtResource("2_nljod")]
 position = Vector2(90, 124)
 phase_path = "res://scenes/phase_five.tscn"
+level_entrance_wait_duration = 2.0
+
+[node name="PlayerSpeech" type="NinePatchRect" parent="Player"]
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -20.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/PlayerSpeech"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 48.0
+offset_bottom = 46.0
+bbcode_enabled = true
+script = ExtResource("8_4bgdy")
 
 [node name="Phase End" type="Area2D" parent="."]
 position = Vector2(320, 112)
@@ -143,9 +160,9 @@ scale = Vector2(1.34375, 0.97167)
 script = ExtResource("5_hi7l3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lady/Weakness"]
-position = Vector2(0, -15.4373)
+position = Vector2(0, -14.9228)
 scale = Vector2(1, 1.24699)
-shape = SubResource("CapsuleShape2D_632nh")
+shape = SubResource("RectangleShape2D_bgdvv")
 
 [node name="tree" type="Sprite2D" parent="."]
 position = Vector2(-26, 125)
@@ -157,6 +174,22 @@ position = Vector2(229, 8)
 scale = Vector2(1.02695, 0.984468)
 shape = SubResource("ConvexPolygonShape2D_632nh")
 debug_color = Color(0, 0.658696, 0.215611, 0.42)
+
+[node name="LadySpeech" type="NinePatchRect" parent="."]
+offset_left = 122.0
+offset_top = 68.0
+offset_right = 162.0
+offset_bottom = 108.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LadySpeech"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 48.0
+offset_bottom = 53.0
+bbcode_enabled = true
+text = "[b][font_size=9][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]Please, don't go[/wave][/color][/font_size][/b]"
+script = ExtResource("7_bgdvv")
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="Lady/Weakness" to="Lady" method="_on_weakness_body_entered"]
