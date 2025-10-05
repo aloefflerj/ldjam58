@@ -220,7 +220,7 @@ z_index = -100
 position = Vector2(247, 126)
 sprite_frames = SubResource("SpriteFrames_4bgdy")
 autoplay = "default"
-frame_progress = 0.235648
+frame_progress = 0.700932
 
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
 [connection signal="body_entered" from="Lady/Weakness" to="Lady" method="_on_weakness_body_entered"]
