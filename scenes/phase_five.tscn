@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://6d1ge0mvuvrt"]
+[gd_scene load_steps=9 format=3 uid="uid://6d1ge0mvuvrt"]
 
 [ext_resource type="Texture2D" uid="uid://bbscfqw4t2boj" path="res://assets/Placeholder/Levels/level_5.png" id="1_dw2rk"]
+[ext_resource type="Script" uid="uid://cg4oi0jwdumke" path="res://scenes/phase_five.gd" id="1_e8w3v"]
 [ext_resource type="PackedScene" uid="uid://b2niru2h553lj" path="res://scenes/player.tscn" id="2_snv5q"]
 [ext_resource type="PackedScene" uid="uid://cxq57h41375fl" path="res://scenes/UI/hud.tscn" id="3_snv5q"]
 
@@ -12,7 +13,10 @@ size = Vector2(222.391, 31.0789)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snv5q"]
 size = Vector2(382.586, 17.5356)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8w3v"]
+
 [node name="phase_five" type="Node2D"]
+script = ExtResource("1_e8w3v")
 
 [node name="Bg" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
@@ -20,10 +24,10 @@ texture = ExtResource("1_dw2rk")
 
 [node name="Player" parent="." instance=ExtResource("2_snv5q")]
 position = Vector2(16, 123)
-phase_path = "res://scenes/phase_four.tscn"
+phase_path = "res://scenes/phase_four_reverse.tscn"
 
 [node name="Extreme Left Margin" type="Sprite2D" parent="."]
-position = Vector2(-28, 102)
+position = Vector2(-27, 84)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Extreme Left Margin"]
 
@@ -68,4 +72,25 @@ offset_bottom = 48.0
 bbcode_enabled = true
 text = "[b][font_size=9][color=#a3c1b7][wave amp=30.0 freq=3.0 connected=1]On sale $2000[/wave][/color][/font_size][/b]"
 
+[node name="GoBackPlate" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 129.0
+offset_top = 75.0
+offset_right = 183.0
+offset_bottom = 91.0
+bbcode_enabled = true
+text = "[b][font_size=11
+][color=#a3c1b7][pulse freq=1.0 color=#ffffff40 ease=-2.0]GO BACK[/pulse][/color][/font_size][/b]"
+fit_content = true
+scroll_active = false
+
+[node name="Phase End" type="Area2D" parent="."]
+position = Vector2(-9, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase End"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_e8w3v")
+
+[connection signal="body_entered" from="Repel Spell" to="." method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
+[connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
