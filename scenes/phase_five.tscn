@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6d1ge0mvuvrt"]
+[gd_scene load_steps=10 format=3 uid="uid://6d1ge0mvuvrt"]
 
 [ext_resource type="Texture2D" uid="uid://bbscfqw4t2boj" path="res://assets/Placeholder/Levels/level_5.png" id="1_dw2rk"]
 [ext_resource type="Script" uid="uid://cg4oi0jwdumke" path="res://scenes/phase_five.gd" id="1_e8w3v"]
@@ -14,6 +14,9 @@ size = Vector2(222.391, 31.0789)
 size = Vector2(382.586, 17.5356)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8w3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8w3v"]
+size = Vector2(382.706, 36)
 
 [node name="phase_five" type="Node2D"]
 script = ExtResource("1_e8w3v")
@@ -80,7 +83,7 @@ offset_right = 63.0
 offset_bottom = 137.0
 bbcode_enabled = true
 text = "[b][font_size=9.9
-][color=#a3c1b7][pulse freq=1.0 color=#ffffff40 ease=-2.0]<< GO BACK[/pulse][/color][/font_size][/b]"
+][color=#a3c1b7][rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]<< GO BACK[/rainbow][/color][/font_size][/b]"
 fit_content = true
 scroll_active = false
 
@@ -92,17 +95,23 @@ position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_e8w3v")
 
 [node name="Ground2" type="Sprite2D" parent="."]
-position = Vector2(235, 0)
+position = Vector2(232, 1)
 scale = Vector2(0.354167, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D"]
-position = Vector2(108.867, 163.298)
-scale = Vector2(1.02695, 0.984468)
-shape = SubResource("RectangleShape2D_dw2rk")
-debug_color = Color(0, 0.658696, 0.215611, 0.42)
+position = Vector2(59.2941, 166)
+shape = SubResource("RectangleShape2D_e8w3v")
+
+[node name="FINISH GAME!" type="Area2D" parent="."]
+position = Vector2(228, 129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FINISH GAME!"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_e8w3v")
 
 [connection signal="body_entered" from="Repel Spell" to="." method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="Repel Spell" to="Player" method="_on_repel_spell_body_entered"]
 [connection signal="body_entered" from="Phase End" to="Player" method="_on_phase_end_body_entered"]
+[connection signal="body_entered" from="FINISH GAME!" to="Player" method="_on_last_finish_game"]

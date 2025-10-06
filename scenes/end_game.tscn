@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds8relwb2n45p"]
+
+[ext_resource type="Script" uid="uid://cg4oi0jwdumke" path="res://scenes/phase_five.gd" id="1_5pifh"]
+[ext_resource type="Texture2D" uid="uid://xrulswkkdoph" path="res://assets/Placeholder/Collectible/BIKE.png" id="2_uwdrl"]
+
+[node name="phase_five" type="Node2D"]
+script = ExtResource("1_5pifh")
+
+[node name="GoBackPlate" type="RichTextLabel" parent="."]
+offset_left = 133.0
+offset_top = 56.0
+offset_right = 187.0
+offset_bottom = 82.0
+bbcode_enabled = true
+text = "[b][font_size=9.9
+][color=#a3c1b7][wave amp=30.0 freq=5.0 connected=1]YOU GOT A BIKE[/wave][/color][/font_size][/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(158, 102)
+texture = ExtResource("2_uwdrl")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdpiwlf3w6yy8"
-path="res://.godot/imported/Jennie-BLACKPINK-capa-1.jpg-6e8a5764b93d0fc712afb43545bda56a.ctex"
+uid="uid://xrulswkkdoph"
+path="res://.godot/imported/BIKE.png-f87b4c864c5995ca46a90fd4d7c4b101.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Jennie-BLACKPINK-capa-1.jpg"
-dest_files=["res://.godot/imported/Jennie-BLACKPINK-capa-1.jpg-6e8a5764b93d0fc712afb43545bda56a.ctex"]
+source_file="res://assets/Placeholder/Collectible/BIKE.png"
+dest_files=["res://.godot/imported/BIKE.png-f87b4c864c5995ca46a90fd4d7c4b101.ctex"]
 
 [params]
 
